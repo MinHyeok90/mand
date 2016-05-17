@@ -1,2 +1,171 @@
-<h1>Home#update</h1>
+<h1>수정하기 페이지입니다.</h1>
 <p>Find me in app/views/home/update.html.erb</p>
+<hr>
+<!--mandalart list 출력-->
+<!--box22 25 28 :: 52 () 58 :: 82 85 88은 중간목표를 출력-->
+<!--box44 45 46 :: 54 () 56 :: 64 65 66로 중간목표를 출력-->
+<style>
+.subject1{
+    color:red;
+    font-weight:bold;
+    text-align:center;
+    background-color:#77ffff;
+    height:90px;
+    padding:-50px;
+}
+.subject2{
+    font-weight:bold;
+    text-align:center;
+    background-color:#cccccc;
+    height:90px;
+}
+.subject3 {
+    text-align:center;
+    background-color:#eeeeee;
+    height:90px;
+}
+p.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em
+}
+.parantcen {
+  display: table;
+  text-align: center;
+}
+
+span.cen {
+  display: table-cell;
+  vertical-align: middle;
+}
+</style>
+<form action="/home/realupdate" method="POST">
+  <div class="form-group">
+    <label for="subject">제목</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="제목을 작성해 주세요">
+  </div>
+  <% mandal = @mandal%>
+  <!--one mandal-->
+  <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box11" id="box11"><%= mandal.box11 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box12" id="box12"><%= mandal.box12 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box13" id="box13"><%= mandal.box13 %></textarea></div>
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box14" id="box14"><%= mandal.box14 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box15" id="box15"><%= mandal.box15 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box16" id="box16"><%= mandal.box16 %></textarea></div>
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box17" id="box17"><%= mandal.box17 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box18" id="box18"><%= mandal.box18 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box19" id="box19"><%= mandal.box19 %></textarea></div>
+  </div>
+  <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box21" id="box21"><%= mandal.box21 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box22" id="box22"><%= mandal.box44 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box23" id="box23"><%= mandal.box23 %></textarea></div>
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box24" id="box24"><%= mandal.box24 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box25" id="box25"><%= mandal.box45 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box26" id="box26"><%= mandal.box26 %></textarea></div>
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box27" id="box27"><%= mandal.box27 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box28" id="box28"><%= mandal.box46 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box29" id="box29"><%= mandal.box29 %></textarea></div>
+  </div>
+  <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box31" id="box31"><%= mandal.box31 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box32" id="box32"><%= mandal.box32 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box33" id="box33"><%= mandal.box33 %></textarea></div>
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box34" id="box34"><%= mandal.box34 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box35" id="box35"><%= mandal.box35 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box36" id="box36"><%= mandal.box36 %></textarea></div>
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box37" id="box37"><%= mandal.box37 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box38" id="box38"><%= mandal.box38 %></textarea></div>
+      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box39" id="box39"><%= mandal.box39 %></textarea></div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box41 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box42 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box43 %></span></div>
+      <div class="col-xs-1 subject2 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box44 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box45 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box46 %></span></div>
+      <div class="col-xs-1 subject3 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box47 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box48 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box49 %></span></div>
+  </div>
+  <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box51 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box54 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box53 %></span></div>
+      <div class="col-xs-1 subject2 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box54 %></span></div>
+      <div class="col-xs-1 subject1 parantcen"><span class="cen"><%= mandal.box55 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box56 %></span></div>
+      <div class="col-xs-1 subject3 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box57 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box56 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box59 %></span></div>
+      <div class="col-xs-1"></div>
+  </div>
+  <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box61 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box62 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box63 %></span></div>
+      <div class="col-xs-1 subject2 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box64 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box65 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box66 %></span></div>
+      <div class="col-xs-1 subject3 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box67 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box68 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box69 %></span></div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box71 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box72 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box73 %></span></div>
+      <div class="col-xs-1 subject3 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box74 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box75 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box76 %></span></div>
+      <div class="col-xs-1 subject3 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box77 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box78 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box79 %></span></div>
+  </div>
+  <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box81 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box64 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box83 %></span></div>
+      <div class="col-xs-1 subject3 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box84 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box65 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box86 %></span></div>
+      <div class="col-xs-1 subject3 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box87 %></span></div>
+      <div class="col-xs-1 subject2 parantcen"><span class="cen"><%= mandal.box66 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box89 %></span></div>
+  </div>
+  <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box91 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box92 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box93 %></span></div>
+      <div class="col-xs-1 subject3 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box94 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box95 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box96 %></span></div>
+      <div class="col-xs-1 subject3 parantcen col-sm-offset-1"><span class="cen"><%= mandal.box97 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box98 %></span></div>
+      <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box99 %></span></div>
+  </div>
+  <br>
+  <a href="/home/update/<%=mandal.id%>">[수정하기]</a>
+  <a href="/home/remove">[삭제하기]</a>
+  <hr>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

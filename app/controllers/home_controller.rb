@@ -97,8 +97,16 @@ class HomeController < ApplicationController
   end
 
   def update
+    @mandal=Mandalart.find(params[:mandal_id])
   end
 
+  def realupdate
+    redirect_to "/home/index"
+  end
+  
   def remove
+    @mandal=Mandalart.find(params[:mandal_id])
+    @mandal.destroy
+    redirect_to "/home/index"
   end
 end

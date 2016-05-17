@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get 'home/create'
   post 'home/write'
 
-  post 'home/update'
+  get 'home/update/:mandal_id' => 'home#update'
   post 'home/realupdate'
 
-  get 'home/remove'
+  get 'home/remove/:mandal_id' => 'home#remove'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
