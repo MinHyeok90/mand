@@ -11,19 +11,20 @@
     color:red;
     font-weight:bold;
     text-align:center;
-    background-color:#77ffff;
+    background-color:#fff;
+    border:solid red 1px;
     height:90px;
     padding:-50px;
 }
 .subject2{
     font-weight:bold;
     text-align:center;
-    background-color:#cccccc;
+    background-color:#ccc;
     height:90px;
 }
 .subject3 {
     text-align:center;
-    background-color:#eeeeee;
+    background-color:#eee;
     height:90px;
 }
 p.blocktext {
@@ -44,6 +45,9 @@ span.cen {
 <div class="container">
     <% @mandalarts.each do |mandal| %>
         <!--one mandal-->
+        <div class="row">제목 : <%=mandal.title%>, 글번호 : <%=mandal.id%>, 작성시간 : <%=mandal.created_at%></div>
+        <a href="/home/update/<%=mandal.id%>">[수정하기]</a>
+        <!--<a href="/home/remove/<>">[삭제하기]</a>-->
         <div class="row">
             <div class="col-xs-1"></div>
             <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box11 %></span></div>
@@ -156,8 +160,6 @@ span.cen {
             <div class="col-xs-1 subject3 parantcen"><span class="cen"><%= mandal.box99 %></span></div>
         </div>
         <br>
-        <a href="/home/update/<%=mandal.id%>">[수정하기]</a>
-        <a href="/home/remove/<%=mandal.id%>">[삭제하기]</a>
         <hr>
     <% end %>
 </div>
