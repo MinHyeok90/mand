@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>이런 기능이 있으면 좋겠다.<br>
+      디자인이 어땟으면 좋겠다.<br>
+      자유롭게 내용을 작성해 주세요.<br>
+      <h3>로그인 하셔야합니다.</h3></p>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <form action="/home/suggest" method="POST">
+          <div class="form-group">
+            <label for="exampleInputEmail1">내용 작성</label>
+            <textarea name="content" class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-default">건의사항작성하기</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br><br><hr>
+    <% @suggestions.each do |s| %>
+      <div class="row">
+        <div class="well">
+          <p>건의번호:<%=s.id%></p>
+          <p>건의내용:<%=s.content%></p>
+          <a href="/home/removesuggest/<%=s.id%>">건의삭제</a>
+        </div>
+      </div>
+    <% end %>
+</div>
+
+

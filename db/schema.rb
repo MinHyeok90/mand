@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519125129) do
+ActiveRecord::Schema.define(version: 20160519181216) do
 
   create_table "mandalarts", force: :cascade do |t|
     t.string   "title"
@@ -99,6 +99,13 @@ ActiveRecord::Schema.define(version: 20160519125129) do
     t.integer  "mandalart_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "sugestions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

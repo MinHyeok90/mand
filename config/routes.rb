@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get 'home/remove/:mandal_id' => 'home#remove'
   get 'home/mylist'
+  
+  get 'home/suggestion'
+  post 'home/suggest'
+  get 'home/removesuggest/:sug_id' => 'home#removesuggest'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

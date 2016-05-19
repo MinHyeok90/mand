@@ -215,4 +215,29 @@ class HomeController < ApplicationController
       redirect_to "/users/sign_in"
     end
   end
+  
+  def suggestion
+    @suggestions = Sugestion.all.reverse
+  end
+  
+  def suggest
+    if user_signed_in?
+      newsugest = Sugestion.new
+      newsugest.user = current_user
+      newsugest.content = params[:content]
+      newsugest.save
+    else
+      render "로그인 하셔야 작성할 수 있습니다."
+    end
+    redirect_to "/home/suggestion"
+  end
+  
+  def removesuggest
+    suggestion = Sugestion.find(params[:sug_id])
+    if suggestion.user == current_user
+      suggestion.destroy
+    end
+    redirect_to "/home/suggestion"
+  end
+  
 end
