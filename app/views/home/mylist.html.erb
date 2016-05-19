@@ -46,14 +46,16 @@ span.cen {
 <div class="container">
     <div class="row"><a href="/home/create" class="btn btn-success">저도 목표를 작성하고 싶습니다.</a></div>
     <hr>
-    <% @mandalarts.each do |mandal| %>
+    <% @mylist.each do |mandal| %>
         <!--one mandal-->
         <div class="row title">
             <div class="col-xs-9 parantcen"><h1><%=mandal.title%></h1></div>
             <div class="col-xs-3 parantcen">
                 <span class="cen">
-                    <h5><p><%=time_ago_in_words(mandal.created_at)%></p>
-                        <p><%=mandal.user.email%></p></h5>
+                    <h5><p><%=time_ago_in_words(mandal.created_at)%></p></h5>
+                    <a href="/home/update/<%=mandal.id%>" class="btn btn-primary">수정하기</a>
+                    <a href="/home/remove/<%=mandal.id%>" class="btn btn-danger">삭제하기</a>
+                    
             <!--<p>글번호 : <%=mandal.id%></p>-->
             </div>
         </div>

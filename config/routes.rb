@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'home#index'
   get 'home/index'
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   post 'home/realupdate'
 
   get 'home/remove/:mandal_id' => 'home#remove'
+  get 'home/mylist'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -2,6 +2,9 @@ class CreateMandalarts < ActiveRecord::Migration
   def change
     create_table :mandalarts do |t|
       t.string :title
+      t.integer :user_id
+      t.boolean :shared
+      
       t.string :box11
       t.string :box12
       t.string :box13
