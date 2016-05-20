@@ -111,6 +111,7 @@ class HomeController < ApplicationController
   def realupdate
     newmandal = Mandalart.find(params[:mandal_id])
     if newmandal.user == current_user
+      newmandal.shared = params[:shared]
       newmandal.title = params[:title]
       
       newmandal.box11 = params[:box11]
@@ -217,6 +218,7 @@ class HomeController < ApplicationController
   end
   
   def suggestion
+    @status = "suggestion"
     @suggestions = Sugestion.all.reverse
   end
   
