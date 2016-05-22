@@ -78,7 +78,88 @@ class CreateMandalarts < ActiveRecord::Migration
       t.string :box97
       t.string :box98
       t.string :box99
+      
+      t.string :stat11
+      t.string :stat12
+      t.string :stat13
+      t.string :stat14
+      t.string :stat15
+      t.string :stat16
+      t.string :stat17
+      t.string :stat18
+      t.string :stat19
+      
+      t.string :stat21
+      t.string :stat23
+      t.string :stat24
+      t.string :stat26
+      t.string :stat27
+      t.string :stat29
 
+      t.string :stat31
+      t.string :stat32
+      t.string :stat33
+      t.string :stat34
+      t.string :stat35
+      t.string :stat36
+      t.string :stat37
+      t.string :stat38
+      t.string :stat39
+      
+      t.string :stat41
+      t.string :stat42
+      t.string :stat43
+      t.string :stat44
+      t.string :stat45
+      t.string :stat46
+      t.string :stat47
+      t.string :stat48
+      t.string :stat49
+      
+      t.string :stat51
+      t.string :stat53
+      t.string :stat54
+      t.string :stat55
+      t.string :stat56
+      t.string :stat57
+      t.string :stat59
+      
+      t.string :stat61
+      t.string :stat62
+      t.string :stat63
+      t.string :stat64
+      t.string :stat65
+      t.string :stat66
+      t.string :stat67
+      t.string :stat68
+      t.string :stat69
+      
+      t.string :stat71
+      t.string :stat72
+      t.string :stat73
+      t.string :stat74
+      t.string :stat75
+      t.string :stat76
+      t.string :stat77
+      t.string :stat78
+      t.string :stat79
+      
+      t.string :stat81
+      t.string :stat83
+      t.string :stat84
+      t.string :stat86
+      t.string :stat87
+      t.string :stat89
+      
+      t.string :stat91
+      t.string :stat92
+      t.string :stat93
+      t.string :stat94
+      t.string :stat95
+      t.string :stat96
+      t.string :stat97
+      t.string :stat98
+      t.string :stat99
       t.timestamps null: false
     end
   end
