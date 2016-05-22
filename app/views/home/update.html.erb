@@ -1,167 +1,171 @@
-
 <style>
 .centerTextarea{
   color:red;
     font-weight:bold;
 }
 </style>
-<form action="/home/realupdate" method="POST">
-  <% mandal = @mandal%>
-  <div class="row">
-    <div class="col-xs-11 col-xs-offset-1">
-      <div class="form-group">
-        <label for="subject">제목</label>
-        <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="제목을 작성해 주세요"
-        value="<%=mandal.title%>">
-        <input type="hidden" name="mandal_id" class="form-control" id="exampleInputEmail1" value="<%=mandal.id%>">
-      </div>
+<div class="container">
+  <form action="/home/realupdate" method="POST">
+    <% mandal = @mandal%>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label for="subject">제목</label>
+          <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="제목을 작성해 주세요"
+          value="<%=mandal.title%>">
+          <input type="hidden" name="mandal_id" class="form-control" id="exampleInputEmail1" value="<%=mandal.id%>">
+        </div>
       </div>
       <hr>
     </div>
-  
-  <!--one mandal-->
-  <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box11" id="box11"><%= mandal.box11 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box12" id="box12"><%= mandal.box12 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box13" id="box13"><%= mandal.box13 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box14" id="box14"><%= mandal.box14 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box15" id="box15"><%= mandal.box15 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box16" id="box16"><%= mandal.box16 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box17" id="box17"><%= mandal.box17 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box18" id="box18"><%= mandal.box18 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box19" id="box19"><%= mandal.box19 %></textarea></div>
-  </div>
-  <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box21" id="box21"><%= mandal.box21 %></textarea></div>
-      <div class="col-xs-1"><textarea disabled class="form-control" rows="4" name="box22" id="box22"><%= mandal.box44 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box23" id="box23"><%= mandal.box23 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box24" id="box24"><%= mandal.box24 %></textarea></div>
-      <div class="col-xs-1"><textarea disabled class="form-control" rows="4" name="box25" id="box25"><%= mandal.box45 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box26" id="box26"><%= mandal.box26 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box27" id="box27"><%= mandal.box27 %></textarea></div>
-      <div class="col-xs-1"><textarea disabled class="form-control" rows="4" name="box28" id="box28"><%= mandal.box46 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box29" id="box29"><%= mandal.box29 %></textarea></div>
-  </div>
-  <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box31" id="box31"><%= mandal.box31 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box32" id="box32"><%= mandal.box32 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box33" id="box33"><%= mandal.box33 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box34" id="box34"><%= mandal.box34 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box35" id="box35"><%= mandal.box35 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box36" id="box36"><%= mandal.box36 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box37" id="box37"><%= mandal.box37 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box38" id="box38"><%= mandal.box38 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box39" id="box39"><%= mandal.box39 %></textarea></div>
-  </div>
-  <br>
-  <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box41" id="box41"><%= mandal.box41 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box42" id="box42"><%= mandal.box42 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box43" id="box43"><%= mandal.box43 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box44" id="box44"><%= mandal.box44 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box45" id="box45"><%= mandal.box45 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box46" id="box46"><%= mandal.box46 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box47" id="box47"><%= mandal.box47 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box48" id="box48"><%= mandal.box48 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box49" id="box49"><%= mandal.box49 %></textarea></div>
-  </div>
-  <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box51" id="box51"><%= mandal.box51 %></textarea></div>
-      <div class="col-xs-1"><textarea disabled class="form-control" rows="4" name="box52" id="box52"><%= mandal.box54 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box53" id="box53"><%= mandal.box53 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box54" id="box54"><%= mandal.box54 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control centerTextarea" rows="4" name="box55" id="box55"><%= mandal.box55 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box56" id="box56"><%= mandal.box56 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box57" id="box57"><%= mandal.box57 %></textarea></div>
-      <div class="col-xs-1"><textarea disabled class="form-control" rows="4" name="box58" id="box58"><%= mandal.box56 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box59" id="box59"><%= mandal.box59 %></textarea></div>
-  </div>
-  <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box61" id="box61"><%= mandal.box61 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box62" id="box62"><%= mandal.box62 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box63" id="box63"><%= mandal.box63 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box64" id="box64"><%= mandal.box64 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box65" id="box65"><%= mandal.box65 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box66" id="box66"><%= mandal.box66 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box67" id="box67"><%= mandal.box67 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box68" id="box68"><%= mandal.box68 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box69" id="box69"><%= mandal.box69 %></textarea></div>
-  </div>
-  <br>
-  <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box71" id="box71"><%= mandal.box71 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box72" id="box72"><%= mandal.box72 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box73" id="box73"><%= mandal.box73 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box74" id="box74"><%= mandal.box74 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box75" id="box75"><%= mandal.box75 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box76" id="box76"><%= mandal.box76 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box77" id="box77"><%= mandal.box77 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box78" id="box78"><%= mandal.box78 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box79" id="box79"><%= mandal.box79 %></textarea></div>
-  </div>
-  <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box81" id="box81"><%= mandal.box81 %></textarea></div>
-      <div class="col-xs-1"><textarea disabled class="form-control" rows="4" name="box82" id="box82"><%= mandal.box64 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box83" id="box83"><%= mandal.box83 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box84" id="box84"><%= mandal.box84 %></textarea></div>
-      <div class="col-xs-1"><textarea disabled class="form-control" rows="4" name="box85" id="box85"><%= mandal.box65 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box86" id="box86"><%= mandal.box86 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box87" id="box87"><%= mandal.box87 %></textarea></div>
-      <div class="col-xs-1"><textarea disabled class="form-control" rows="4" name="box88" id="box88"><%= mandal.box66 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box89" id="box89"><%= mandal.box89 %></textarea></div>
-  </div>
-  <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box91" id="box91"><%= mandal.box91 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box92" id="box92"><%= mandal.box92 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box93" id="box93"><%= mandal.box93 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box94" id="box94"><%= mandal.box94 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box95" id="box95"><%= mandal.box95 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box96" id="box96"><%= mandal.box96 %></textarea></div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box97" id="box97"><%= mandal.box97 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box98" id="box98"><%= mandal.box98 %></textarea></div>
-      <div class="col-xs-1"><textarea class="form-control" rows="4" name="box99" id="box99"><%= mandal.box99 %></textarea></div>
-  </div>
-  <br>
-  <div class="container">
+    
+    <!--one mandal-->
     <div class="row">
-      <div class="checkbox">
-        <% if mandal.shared %>
-          <input type="checkbox" name="shared" checked>이 만다라트를 다른 사람들에게 공유합니다. (체크를 해제하면 My list에서만 보실 수 있습니다.)
-        <% else %>
-          <input type="checkbox" name="shared">이 만다라트를 다른 사람들에게 공유합니다. (체크를 해제하면 My list에서만 보실 수 있습니다.)
-        <% end %>
+      <div class="table-responsive">          
+        <table class="table" style="font-size:1em">
+          <thead>
+            <!--<tr></tr>-->
+          </thead>
+          <tbody>
+            <tr>
+                <td><textarea class="form-control" rows="4" name="box11" id="box11"><%= mandal.box11 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box12" id="box12"><%= mandal.box12 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box13" id="box13"><%= mandal.box13 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box14" id="box14"><%= mandal.box14 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box15" id="box15"><%= mandal.box15 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box16" id="box16"><%= mandal.box16 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box17" id="box17"><%= mandal.box17 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box18" id="box18"><%= mandal.box18 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box19" id="box19"><%= mandal.box19 %></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="form-control" rows="4" name="box21" id="box21"><%= mandal.box21 %></textarea></td>
+                <td><textarea disabled class="form-control" rows="4" name="box22" id="box22"><%= mandal.box44 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box23" id="box23"><%= mandal.box23 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box24" id="box24"><%= mandal.box24 %></textarea></td>
+                <td><textarea disabled class="form-control" rows="4" name="box25" id="box25"><%= mandal.box45 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box26" id="box26"><%= mandal.box26 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box27" id="box27"><%= mandal.box27 %></textarea></td>
+                <td><textarea disabled class="form-control" rows="4" name="box28" id="box28"><%= mandal.box46 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box29" id="box29"><%= mandal.box29 %></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="form-control" rows="4" name="box31" id="box31"><%= mandal.box31 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box32" id="box32"><%= mandal.box32 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box33" id="box33"><%= mandal.box33 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box34" id="box34"><%= mandal.box34 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box35" id="box35"><%= mandal.box35 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box36" id="box36"><%= mandal.box36 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box37" id="box37"><%= mandal.box37 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box38" id="box38"><%= mandal.box38 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box39" id="box39"><%= mandal.box39 %></textarea></td>
+            </tr>
+            <tr><td><br></td></tr>
+            <tr>
+                <td><textarea class="form-control" rows="4" name="box41" id="box41"><%= mandal.box41 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box42" id="box42"><%= mandal.box42 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box43" id="box43"><%= mandal.box43 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box44" id="box44"><%= mandal.box44 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box45" id="box45"><%= mandal.box45 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box46" id="box46"><%= mandal.box46 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box47" id="box47"><%= mandal.box47 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box48" id="box48"><%= mandal.box48 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box49" id="box49"><%= mandal.box49 %></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="form-control" rows="4" name="box51" id="box51"><%= mandal.box51 %></textarea></td>
+                <td><textarea disabled class="form-control" rows="4" name="box52" id="box52"><%= mandal.box54 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box53" id="box53"><%= mandal.box53 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box54" id="box54"><%= mandal.box54 %></textarea></td>
+                <td><textarea class="form-control centerTextarea" rows="4" name="box55" id="box55"><%= mandal.box55 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box56" id="box56"><%= mandal.box56 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box57" id="box57"><%= mandal.box57 %></textarea></td>
+                <td><textarea disabled class="form-control" rows="4" name="box58" id="box58"><%= mandal.box56 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box59" id="box59"><%= mandal.box59 %></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="form-control" rows="4" name="box61" id="box61"><%= mandal.box61 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box62" id="box62"><%= mandal.box62 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box63" id="box63"><%= mandal.box63 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box64" id="box64"><%= mandal.box64 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box65" id="box65"><%= mandal.box65 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box66" id="box66"><%= mandal.box66 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box67" id="box67"><%= mandal.box67 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box68" id="box68"><%= mandal.box68 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box69" id="box69"><%= mandal.box69 %></textarea></td>
+            </tr>
+            <tr><td><br></td></tr>
+            <tr>
+                <td><textarea class="form-control" rows="4" name="box71" id="box71"><%= mandal.box71 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box72" id="box72"><%= mandal.box72 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box73" id="box73"><%= mandal.box73 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box74" id="box74"><%= mandal.box74 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box75" id="box75"><%= mandal.box75 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box76" id="box76"><%= mandal.box76 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box77" id="box77"><%= mandal.box77 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box78" id="box78"><%= mandal.box78 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box79" id="box79"><%= mandal.box79 %></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="form-control" rows="4" name="box81" id="box81"><%= mandal.box81 %></textarea></td>
+                <td><textarea disabled class="form-control" rows="4" name="box82" id="box82"><%= mandal.box64 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box83" id="box83"><%= mandal.box83 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box84" id="box84"><%= mandal.box84 %></textarea></td>
+                <td><textarea disabled class="form-control" rows="4" name="box85" id="box85"><%= mandal.box65 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box86" id="box86"><%= mandal.box86 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box87" id="box87"><%= mandal.box87 %></textarea></td>
+                <td><textarea disabled class="form-control" rows="4" name="box88" id="box88"><%= mandal.box66 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box89" id="box89"><%= mandal.box89 %></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="form-control" rows="4" name="box91" id="box91"><%= mandal.box91 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box92" id="box92"><%= mandal.box92 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box93" id="box93"><%= mandal.box93 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box94" id="box94"><%= mandal.box94 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box95" id="box95"><%= mandal.box95 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box96" id="box96"><%= mandal.box96 %></textarea></td>
+                <td style="width:10px;"></td>
+                <td><textarea class="form-control" rows="4" name="box97" id="box97"><%= mandal.box97 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box98" id="box98"><%= mandal.box98 %></textarea></td>
+                <td><textarea class="form-control" rows="4" name="box99" id="box99"><%= mandal.box99 %></textarea></td>
+            </tr>
+    
+          </tbody>
+        </table>
+      </div><!--<div class="table-responsive">-->
+    </div><!--row-->
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="checkbox">
+          <% if mandal.shared %>
+            <input type="checkbox" name="shared" checked>이 만다라트를 다른 사람들에게 공유합니다. (체크를 해제하면 My list에서만 보실 수 있습니다.)
+          <% else %>
+            <input type="checkbox" name="shared">이 만다라트를 다른 사람들에게 공유합니다. (체크를 해제하면 My list에서만 보실 수 있습니다.)
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <button type="submit" class="btn btn-default">수정완료</button>
-</form>
+    <button type="submit" class="btn btn-default">수정완료</button>
+  </form>
+</div><!--container-->
 
 <script>
 $("#box44").focusout(function() {
