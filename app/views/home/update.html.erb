@@ -168,6 +168,10 @@
 </div><!--container-->
 
 <script>
+$( ".form-control" ).attr({
+  maxlength:"20"
+});
+
 $("#box44").focusout(function() {
     $("#box22").text( $("#box44").val());
   })

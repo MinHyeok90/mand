@@ -13,7 +13,7 @@
       <hr>
       <div class="form-group">
         <label for="subject">제목:</label> 
-        <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="제목을 작성해 주세요, 빈 칸으로 두실 경우 중심 목표가 제목이 됩니다">
+        <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="제목을 작성해 주세요, 빈 칸으로 두실 경우 중심 목표가 제목이 됩니다" value="<%=@goal%>">
       </div>
     </div><!--<div class="col-xs-12">-->
   </div> <!--제목row-->
@@ -30,7 +30,7 @@
           <% (1..9).each do |j| %>
             <% if i== 5 && j==5 %>
               <td><textarea autofocus="" class="form-control" rows="3" name="box<%=i%><%=j%>" id="box<%=i%><%=j%>" maxlength="20" style="width:100%"
-              style="color:red;" placeholder="목표를 작성해 주세요 : 20자 이내"></textarea></td>
+              style="color:red;" placeholder="목표를 작성해 주세요 : 20자 이내"><%=@goal%></textarea></td>
             <%  #이하 disable출력코드 %>
             <% elsif  ((i == 2 && j == 2) || 
                         (i == 2 && j == 5) || 

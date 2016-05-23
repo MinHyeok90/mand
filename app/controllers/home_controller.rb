@@ -6,6 +6,7 @@ class HomeController < ApplicationController
 
   def create
     @status = "create"
+    @goal = params[:goal]
      unless user_signed_in?
        redirect_to '/users/sign_in'
      end
