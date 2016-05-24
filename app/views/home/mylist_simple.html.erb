@@ -104,7 +104,7 @@ span.cen {
      <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <%@mylist.each do |mandal| %>
-          <li role="presentation" <% if @flag=="first" %> <%='class="active"'%><% @flag="second" end%>><a href="#<%=mandal.id%>" aria-controls="<%=mandal.id%>" role="tab" data-toggle="tab"><%=mandal.title%></a></li>
+          <li role="presentation" <% if @flag=="first" %> <%='class=active'%><% @flag="second" end%>><a href="#<%=mandal.id%>" aria-controls="<%=mandal.id%>" role="tab" data-toggle="tab"><%=mandal.title%></a></li>
       <% end %>
     </ul>
 
@@ -118,7 +118,30 @@ span.cen {
                 <span class="cen">
                     <h5><p><%=time_ago_in_words(mandal.created_at)%></p></h5>
                     <a href="/home/update/<%=mandal.id%>" class="btn btn-primary">수정하기</a>
-                    <a href="/home/remove/<%=mandal.id%>" class="btn btn-danger">삭제하기</a>
+                    
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                      삭제하기
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">만다라트 삭제</h4>
+                          </div>
+                          <div class="modal-body">
+                             <h3><b><%= mandal.title %></b></h3>정말로 삭제하시겠습니까?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <a href="/home/remove/<%=mandal.id%>" class="btn btn-danger">삭제하기</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     
             <!--<p>글번호 : <%=mandal.id%></p>-->
             </div>
