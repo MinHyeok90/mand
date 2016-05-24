@@ -41,7 +41,6 @@ class HomeController < ApplicationController
       newmandal.title = params[:title]
     end
     
-    
     newmandal.box11 = params[:box11]
     newmandal.box12 = params[:box12]
     newmandal.box13 = params[:box13]
@@ -352,11 +351,15 @@ class HomeController < ApplicationController
       newsugest = Sugestion.new
       newsugest.user = current_user
       newsugest.content = params[:content]
-      newsugest.save
+      if newsugest.save
+      	redirect_to "/home/suggestion"
+      else
+      	render :text => newsugest.errors.messages[:title].first
+      end
     else
       render "로그인 하셔야 작성할 수 있습니다."
+      redirect_to "/home/suggestion"
     end
-    redirect_to "/home/suggestion"
   end
   
   def removesuggest
@@ -521,4 +524,17 @@ class HomeController < ApplicationController
     onemandal.save
   end
   
+  def copy
+    if user_signed_in?
+      exist_modal = Mandalart.find(params[:mandal_id])
+      newmandal = exist_modal.dup
+      newmandal.user = current_user
+      newmandal.shared = true  #공유할지 안할지.
+      
+      newmandal.save
+      redirect_to "/home/mylist"
+    else
+      redirect_to "/users/sign_in"
+    end
+  end
 end

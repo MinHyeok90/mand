@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   get '/home/mylist/update_stat' => 'home#update_stat'
   get '/home/test'
   
-
+  get '/home/copy/:mandal_id' => 'home#copy'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
