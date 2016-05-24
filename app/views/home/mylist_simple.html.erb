@@ -1,29 +1,28 @@
 <style>
-/*중심목표*/
+/*레이아웃*/
 .box{
+    font-size:0.9em;
+    height:77px;
     word-break:break-all;
 }
+.box_offset{
+    margin-left:33px;
+}
+/*중심목표*/
 .subject1{
     color:red;
     font-weight:bold;
     border:solid red 2px;
-    height:90px;
-    padding:-50px;
-    font-size: 0.8em;
 }
 /*중간목표*/
 .subject2{
     font-weight:bold;
-    height:90px;
     border:1px dashed #999;
-    font-size: 0.8em;
 }
 /*말단목표*/
 .subject3 {
     text-align:center;
-    height:90px;
     border:1px dashed white;
-    font-size: 0.8em;
 }
 p.blocktext {
     margin-left: auto;
@@ -118,7 +117,6 @@ span.cen {
                 <span class="cen">
                     <h5><p><%=time_ago_in_words(mandal.created_at)%></p></h5>
                     <a href="/home/update/<%=mandal.id%>" class="btn btn-primary">수정하기</a>
-                    
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
                       삭제하기
@@ -153,10 +151,10 @@ span.cen {
                 <div id="<%=mandal.id%>_stat11" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat11%>"><span class="cen"><%= mandal.box11 %></span></div>
                 <div id="<%=mandal.id%>_stat12" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat12%>"><span class="cen"><%= mandal.box12 %></span></div>
                 <div id="<%=mandal.id%>_stat13" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat13%>"><span class="cen"><%= mandal.box13 %></span></div>
-                <div id="<%=mandal.id%>_stat14" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat14%>"><span class="cen"><%= mandal.box14 %></span></div>
+                <div id="<%=mandal.id%>_stat14" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat14%> box_offset"><span class="cen"><%= mandal.box14 %></span></div>
                 <div id="<%=mandal.id%>_stat15" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat15%>"><span class="cen"><%= mandal.box15 %></span></div>
                 <div id="<%=mandal.id%>_stat16" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat16%>"><span class="cen"><%= mandal.box16 %></span></div>
-                <div id="<%=mandal.id%>_stat17" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat17%>"><span class="cen"><%= mandal.box17 %></span></div>
+                <div id="<%=mandal.id%>_stat17" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat17%> box_offset"><span class="cen"><%= mandal.box17 %></span></div>
                 <div id="<%=mandal.id%>_stat18" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat18%>"><span class="cen"><%= mandal.box18 %></span></div>
                 <div id="<%=mandal.id%>_stat19" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat19%>"><span class="cen"><%= mandal.box19 %></span></div>
             </div>
@@ -165,10 +163,10 @@ span.cen {
                 <div id="<%=mandal.id%>_stat21" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat21%>"><span class="cen"><%= mandal.box21 %></span></div>
                 <div id="<%=mandal.id%>_stat22" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat44%>"><span class="cen"><%= mandal.box44 %></span></div>
                 <div id="<%=mandal.id%>_stat23" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat23%>"><span class="cen"><%= mandal.box23 %></span></div>
-                <div id="<%=mandal.id%>_stat24" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat24%>"><span class="cen"><%= mandal.box24 %></span></div>
+                <div id="<%=mandal.id%>_stat24" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat24%> box_offset"><span class="cen"><%= mandal.box24 %></span></div>
                 <div id="<%=mandal.id%>_stat25" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat45%>"><span class="cen"><%= mandal.box45 %></span></div>
                 <div id="<%=mandal.id%>_stat26" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat26%>"><span class="cen"><%= mandal.box26 %></span></div>
-                <div id="<%=mandal.id%>_stat27" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat27%>"><span class="cen"><%= mandal.box27 %></span></div>
+                <div id="<%=mandal.id%>_stat27" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat27%> box_offset"><span class="cen"><%= mandal.box27 %></span></div>
                 <div id="<%=mandal.id%>_stat28" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat46%>"><span class="cen"><%= mandal.box46 %></span></div>
                 <div id="<%=mandal.id%>_stat29" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat29%>"><span class="cen"><%= mandal.box29 %></span></div>
             </div>
@@ -177,10 +175,10 @@ span.cen {
                 <div id="<%=mandal.id%>_stat31" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat31%>"><span class="cen"><%= mandal.box31 %></span></div>
                 <div id="<%=mandal.id%>_stat32" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat32%>"><span class="cen"><%= mandal.box32 %></span></div>
                 <div id="<%=mandal.id%>_stat33" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat33%>"><span class="cen"><%= mandal.box33 %></span></div>
-                <div id="<%=mandal.id%>_stat34" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat34%>"><span class="cen"><%= mandal.box34 %></span></div>
+                <div id="<%=mandal.id%>_stat34" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat34%> box_offset"><span class="cen"><%= mandal.box34 %></span></div>
                 <div id="<%=mandal.id%>_stat35" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat35%>"><span class="cen"><%= mandal.box35 %></span></div>
                 <div id="<%=mandal.id%>_stat36" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat36%>"><span class="cen"><%= mandal.box36 %></span></div>
-                <div id="<%=mandal.id%>_stat37" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat37%>"><span class="cen"><%= mandal.box37 %></span></div>
+                <div id="<%=mandal.id%>_stat37" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat37%> box_offset"><span class="cen"><%= mandal.box37 %></span></div>
                 <div id="<%=mandal.id%>_stat38" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat38%>"><span class="cen"><%= mandal.box38 %></span></div>
                 <div id="<%=mandal.id%>_stat39" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat39%>"><span class="cen"><%= mandal.box39 %></span></div>
             </div>
@@ -190,10 +188,10 @@ span.cen {
                 <div id="<%=mandal.id%>_stat41" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat41%>"><span class="cen"><%= mandal.box41 %></span></div>
                 <div id="<%=mandal.id%>_stat42" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat42%>"><span class="cen"><%= mandal.box42 %></span></div>
                 <div id="<%=mandal.id%>_stat43" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat43%>"><span class="cen"><%= mandal.box43 %></span></div>
-                <div id="<%=mandal.id%>_stat44" class="col-xs-1 col-sm-offset-1 box subject2 parantcen stat_<%= mandal.stat44%>"><span class="cen"><%= mandal.box44 %></span></div>
+                <div id="<%=mandal.id%>_stat44" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat44%> box_offset"><span class="cen"><%= mandal.box44 %></span></div>
                 <div id="<%=mandal.id%>_stat45" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat45%>"><span class="cen"><%= mandal.box45 %></span></div>
                 <div id="<%=mandal.id%>_stat46" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat46%>"><span class="cen"><%= mandal.box46 %></span></div>
-                <div id="<%=mandal.id%>_stat47" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat47%>"><span class="cen"><%= mandal.box47 %></span></div>
+                <div id="<%=mandal.id%>_stat47" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat47%> box_offset"><span class="cen"><%= mandal.box47 %></span></div>
                 <div id="<%=mandal.id%>_stat48" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat48%>"><span class="cen"><%= mandal.box48 %></span></div>
                 <div id="<%=mandal.id%>_stat49" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat49%>"><span class="cen"><%= mandal.box49 %></span></div>
             </div>
@@ -202,10 +200,10 @@ span.cen {
                 <div id="<%=mandal.id%>_stat51" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat51%>"><span class="cen"><%= mandal.box51 %></span></div>
                 <div id="<%=mandal.id%>_stat52" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat54%>"><span class="cen"><%= mandal.box54 %></span></div>
                 <div id="<%=mandal.id%>_stat53" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat53%>"><span class="cen"><%= mandal.box53 %></span></div>
-                <div id="<%=mandal.id%>_stat54" class="col-xs-1 col-sm-offset-1 box subject2 parantcen stat_<%= mandal.stat54%>"><span class="cen"><%= mandal.box54 %></span></div>
+                <div id="<%=mandal.id%>_stat54" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat54%> box_offset"><span class="cen"><%= mandal.box54 %></span></div>
                 <div id="<%=mandal.id%>_stat55" class="col-xs-1 box subject1 parantcen stat_<%= mandal.stat55%>"><span class="cen"><%= mandal.box55 %></span></div>
                 <div id="<%=mandal.id%>_stat56" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat56%>"><span class="cen"><%= mandal.box56 %></span></div>
-                <div id="<%=mandal.id%>_stat57" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat57%>"><span class="cen"><%= mandal.box57 %></span></div>
+                <div id="<%=mandal.id%>_stat57" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat57%> box_offset"><span class="cen"><%= mandal.box57 %></span></div>
                 <div id="<%=mandal.id%>_stat58" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat56%>"><span class="cen"><%= mandal.box56 %></span></div>
                 <div id="<%=mandal.id%>_stat59" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat59%>"><span class="cen"><%= mandal.box59 %></span></div>
             </div>
@@ -214,10 +212,10 @@ span.cen {
                 <div id="<%=mandal.id%>_stat61" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat61%>"><span class="cen"><%= mandal.box61 %></span></div>
                 <div id="<%=mandal.id%>_stat62" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat62%>"><span class="cen"><%= mandal.box62 %></span></div>
                 <div id="<%=mandal.id%>_stat63" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat63%>"><span class="cen"><%= mandal.box63 %></span></div>
-                <div id="<%=mandal.id%>_stat64" class="col-xs-1 col-sm-offset-1 box subject2 parantcen stat_<%= mandal.stat64%>"><span class="cen"><%= mandal.box64 %></span></div>
+                <div id="<%=mandal.id%>_stat64" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat64%> box_offset"><span class="cen"><%= mandal.box64 %></span></div>
                 <div id="<%=mandal.id%>_stat65" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat65%>"><span class="cen"><%= mandal.box65 %></span></div>
                 <div id="<%=mandal.id%>_stat66" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat66%>"><span class="cen"><%= mandal.box66 %></span></div>
-                <div id="<%=mandal.id%>_stat67" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat67%>"><span class="cen"><%= mandal.box67 %></span></div>
+                <div id="<%=mandal.id%>_stat67" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat67%> box_offset"><span class="cen"><%= mandal.box67 %></span></div>
                 <div id="<%=mandal.id%>_stat68" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat68%>"><span class="cen"><%= mandal.box68 %></span></div>
                 <div id="<%=mandal.id%>_stat69" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat69%>"><span class="cen"><%= mandal.box69 %></span></div>
             </div>
@@ -227,10 +225,10 @@ span.cen {
                 <div id="<%=mandal.id%>_stat71" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat71%>"><span class="cen"><%= mandal.box71 %></span></div>
                 <div id="<%=mandal.id%>_stat72" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat72%>"><span class="cen"><%= mandal.box72 %></span></div>
                 <div id="<%=mandal.id%>_stat73" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat73%>"><span class="cen"><%= mandal.box73 %></span></div>
-                <div id="<%=mandal.id%>_stat74" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat74%>"><span class="cen"><%= mandal.box74 %></span></div>
+                <div id="<%=mandal.id%>_stat74" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat74%> box_offset"><span class="cen"><%= mandal.box74 %></span></div>
                 <div id="<%=mandal.id%>_stat75" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat75%>"><span class="cen"><%= mandal.box75 %></span></div>
                 <div id="<%=mandal.id%>_stat76" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat76%>"><span class="cen"><%= mandal.box76 %></span></div>
-                <div id="<%=mandal.id%>_stat77" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat77%>"><span class="cen"><%= mandal.box77 %></span></div>
+                <div id="<%=mandal.id%>_stat77" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat77%> box_offset"><span class="cen"><%= mandal.box77 %></span></div>
                 <div id="<%=mandal.id%>_stat78" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat78%>"><span class="cen"><%= mandal.box78 %></span></div>
                 <div id="<%=mandal.id%>_stat79" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat79%>"><span class="cen"><%= mandal.box79 %></span></div>
             </div>
@@ -239,10 +237,10 @@ span.cen {
                 <div id="<%=mandal.id%>_stat81" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat81%>"><span class="cen"><%= mandal.box81 %></span></div>
                 <div id="<%=mandal.id%>_stat82" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat64%>"><span class="cen"><%= mandal.box64 %></span></div>
                 <div id="<%=mandal.id%>_stat83" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat83%>"><span class="cen"><%= mandal.box83 %></span></div>
-                <div id="<%=mandal.id%>_stat84" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat84%>"><span class="cen"><%= mandal.box84 %></span></div>
+                <div id="<%=mandal.id%>_stat84" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat84%> box_offset"><span class="cen"><%= mandal.box84 %></span></div>
                 <div id="<%=mandal.id%>_stat85" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat65%>"><span class="cen"><%= mandal.box65 %></span></div>
                 <div id="<%=mandal.id%>_stat86" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat86%>"><span class="cen"><%= mandal.box86 %></span></div>
-                <div id="<%=mandal.id%>_stat87" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat87%>"><span class="cen"><%= mandal.box87 %></span></div>
+                <div id="<%=mandal.id%>_stat87" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat87%> box_offset"><span class="cen"><%= mandal.box87 %></span></div>
                 <div id="<%=mandal.id%>_stat88" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat66%>"><span class="cen"><%= mandal.box66 %></span></div>
                 <div id="<%=mandal.id%>_stat89" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat89%>"><span class="cen"><%= mandal.box89 %></span></div>
             </div>
@@ -251,10 +249,10 @@ span.cen {
                 <div id="<%=mandal.id%>_stat91" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat91%>"><span class="cen"><%= mandal.box91 %></span></div>
                 <div id="<%=mandal.id%>_stat92" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat92%>"><span class="cen"><%= mandal.box92 %></span></div>
                 <div id="<%=mandal.id%>_stat93" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat93%>"><span class="cen"><%= mandal.box93 %></span></div>
-                <div id="<%=mandal.id%>_stat94" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat94%>"><span class="cen"><%= mandal.box94 %></span></div>
+                <div id="<%=mandal.id%>_stat94" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat94%> box_offset"><span class="cen"><%= mandal.box94 %></span></div>
                 <div id="<%=mandal.id%>_stat95" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat95%>"><span class="cen"><%= mandal.box95 %></span></div>
                 <div id="<%=mandal.id%>_stat96" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat96%>"><span class="cen"><%= mandal.box96 %></span></div>
-                <div id="<%=mandal.id%>_stat97" class="col-xs-1 col-sm-offset-1 box subject3 parantcen stat_<%= mandal.stat97%>"><span class="cen"><%= mandal.box97 %></span></div>
+                <div id="<%=mandal.id%>_stat97" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat97%> box_offset"><span class="cen"><%= mandal.box97 %></span></div>
                 <div id="<%=mandal.id%>_stat98" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat98%>"><span class="cen"><%= mandal.box98 %></span></div>
                 <div id="<%=mandal.id%>_stat99" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat99%>"><span class="cen"><%= mandal.box99 %></span></div>
             </div>
