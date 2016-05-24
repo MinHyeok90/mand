@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'home/removesuggest/:sug_id' => 'home#removesuggest'
   
   get '/home/mylist/update_stat' => 'home#update_stat'
+  get '/home/test'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,4 +1,15 @@
 class HomeController < ApplicationController
+  
+  def test
+    @status = "mylist"
+    @flag = "first"
+    if user_signed_in?
+      @mylist=Mandalart.where("user_id = ?", current_user).reverse
+    else
+      redirect_to "/users/sign_in"
+    end
+  end
+  
   def index
     @status = "index"
     @mandalarts = Mandalart.where('shared = ?',true).reverse
@@ -298,6 +309,7 @@ class HomeController < ApplicationController
   end
   
   def mylist
+    redirect_to "/home/mylist_simple"
     @status = "mylist"
     if user_signed_in?
       @mylist=Mandalart.where("user_id = ?", current_user).reverse
@@ -307,7 +319,9 @@ class HomeController < ApplicationController
   end
   
   def mylist_simple
+    
     @status = "mylist"
+    @flag = "first"
     if user_signed_in?
       @mylist=Mandalart.where("user_id = ?", current_user).reverse
     else
@@ -493,4 +507,5 @@ class HomeController < ApplicationController
     end
     onemandal.save
   end
+  
 end
