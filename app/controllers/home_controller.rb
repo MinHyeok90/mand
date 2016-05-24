@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :require_login, except: [:index, :index_table] 
   
   def test
     @status = "mylist"
@@ -25,9 +26,6 @@ class HomeController < ApplicationController
   def create
     @status = "create"
     @goal = params[:goal]
-     unless user_signed_in?
-       redirect_to '/users/sign_in'
-     end
   end
 
   def write
@@ -347,18 +345,13 @@ class HomeController < ApplicationController
   end
   
   def suggest
-    if user_signed_in?
-      newsugest = Sugestion.new
-      newsugest.user = current_user
-      newsugest.content = params[:content]
-      if newsugest.save
-      	redirect_to "/home/suggestion"
-      else
-      	render :text => newsugest.errors.messages[:title].first
-      end
+    newsugest = Sugestion.new
+    newsugest.user = current_user
+    newsugest.content = params[:content]
+    if newsugest.save
+    	redirect_to "/home/suggestion"
     else
-      render "로그인 하셔야 작성할 수 있습니다."
-      redirect_to "/home/suggestion"
+    	render :text => newsugest.errors.messages[:title].first
     end
   end
   
