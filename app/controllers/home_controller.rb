@@ -199,8 +199,11 @@ class HomeController < ApplicationController
     newmandal.stat98 = "new"
     newmandal.stat99 = "new"
     
-    newmandal.save
-    redirect_to "/home/mylist"
+    if newmandal.save
+    	redirect_to "/home/mylist"
+    else
+    	render :text => newmandal.errors.messages[:title].first
+    end
   end
 
   def update
@@ -212,7 +215,12 @@ class HomeController < ApplicationController
     newmandal = Mandalart.find(params[:mandal_id])
     if newmandal.user == current_user
       newmandal.shared = params[:shared]
-      newmandal.title = params[:title]
+      
+      if params[:title].empty?            #제목칸을 적지 않았다면 => 중심 목표를 title로 작성.
+        newmandal.title = params[:box55]
+      else
+        newmandal.title = params[:title]
+      end
       
       newmandal.box11 = params[:box11]
       newmandal.box12 = params[:box12]
@@ -295,9 +303,15 @@ class HomeController < ApplicationController
       newmandal.box97 = params[:box97]
       newmandal.box98 = params[:box98]
       newmandal.box99 = params[:box99]
-      newmandal.save
+      
+      if newmandal.save
+      	redirect_to "/home/mylist"
+      else
+      	render :text => newmandal.errors.messages[:title].first
+      end
+    else
+      redirect_to "/home/mylist"
     end
-    redirect_to "/home/mylist"
   end
   
   def remove
@@ -319,7 +333,6 @@ class HomeController < ApplicationController
   end
   
   def mylist_simple
-    
     @status = "mylist"
     @flag = "first"
     if user_signed_in?

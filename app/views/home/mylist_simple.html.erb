@@ -1,8 +1,8 @@
 <style>
 /*레이아웃*/
 .box{
-    font-size:0.9em;
-    height:77px;
+    font-size:0.8em;
+    height:80px;
     word-break:break-all;
 }
 .box_offset{
@@ -87,18 +87,16 @@ span.cen {
 </style>
 <div class="container">
     <div class="row">
-        <form action="/home/create" method="GET">
-            <div class="well col-md-6 col-xs-12">
-              <div class="form-group ">
-                <input name="goal" type="text" maxlength="20" class="form-control" id="goal" placeholder="이루고 싶은 목표가 있나요? 짧고 명확하게 써보세요! (20자 이내)">
-              </div>
-              <div class="col-md-6 col-xs-12"><button type="submit" class="btn btn-default">새 목표 작성하기</button></div>
-            </div>
-        </form>
+        <div class="well col-md-12 col-xs-12">
+            <form action="/home/create" method="GET">
+                <div class="form-group col-md-6 col-xs-12">
+                    <input name="goal" type="text" maxlength="20" class="form-control" id="goal" placeholder="이루고 싶은 목표가 있나요? 짧고 명확하게 써보세요! (20자 이내)">
+                </div>
+                <div class="col-md-6 col-xs-12"><button type="submit" class="btn btn-default">새 목표 작성하기</button></div>
+            </form>
+        </div>
     </div>
     <hr>
-</div>
-<div class="container">
   <div class="row">
      <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
