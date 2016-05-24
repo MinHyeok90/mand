@@ -3,7 +3,14 @@ class HomeController < ApplicationController
     @status = "index"
     @mandalarts = Mandalart.where('shared = ?',true).reverse
   end
-
+  def index_table
+    @status = "index"
+    @mandalarts = Mandalart.where('shared = ?',true).reverse
+  end
+  def index_div
+    @status = "index"
+    @mandalarts = Mandalart.where('shared = ?',true).reverse
+  end
   def create
     @status = "create"
     @goal = params[:goal]
@@ -291,6 +298,15 @@ class HomeController < ApplicationController
   end
   
   def mylist
+    @status = "mylist"
+    if user_signed_in?
+      @mylist=Mandalart.where("user_id = ?", current_user).reverse
+    else
+      redirect_to "/users/sign_in"
+    end
+  end
+  
+  def mylist_simple
     @status = "mylist"
     if user_signed_in?
       @mylist=Mandalart.where("user_id = ?", current_user).reverse

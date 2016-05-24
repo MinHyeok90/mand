@@ -1,0 +1,196 @@
+<style>
+/*중앙정렬 위한 코드*/
+.parantcen {
+  text-align: center;
+}
+/*테이블 스타일*/
+table, th, td {
+    border: 1px solid white;
+    
+    /*영어로 인해 td가 밀리는 것 방지*/
+    border-collapse: collapse;
+    word-break:break-all;
+}
+th, td {
+    padding: 15px;
+    width : 10%;
+    padding :10px;
+    margin: 10px 10px 10px 10px;
+}
+
+.box{
+    height:90px;
+    text-align : center;
+    font-size: 0.9em;
+}
+/*중심목표*/
+.subject1{
+    color:red;
+    font-weight:bold;
+    background-color:#fff;
+    border:solid red 1px;
+}
+/*중간목표*/
+.subject2{
+    font-weight:bold;
+    background-color:#ccc;
+}
+/*말단목표*/
+.subject3 {
+    background-color:#eee;
+}
+p.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+}
+.whitespace{
+    width:10px
+}
+.mandal_body{
+    width:80%;
+}
+.mandal_data{
+    width:8%;
+    margin:0 auto;
+    height:50px;
+    text-align: center;
+    float:left;   
+    margin:auto; 
+}
+
+</style>
+<div class="container">
+    <div class="row">
+        <label for="goal">이루고 싶은 목표가 있나요?</label>
+        <form action="/home/create" method="GET">
+          <div class="form-group col-md-12 col-xs-12">
+            <input name="goal" type="text" maxlength="20" class="form-control" id="exampleInputEmail1" placeholder="목표가 무엇인가요? 짧고 명확하게 써보세요! 20자 이내">
+          </div>
+          <div class="col-md-12 col-xs-12"><button type="submit" class="btn btn-default">목표 작성하기</button></div>
+        </form>
+    </div>
+    <hr>
+    <% @mandalarts.each do |mandal| %>
+        <!--one mandal-->
+        <div class="row title">
+            <div class="col-xs-9 parantcen"><h1><%=mandal.title%></h1></div>
+            <div class="col-xs-3 parantcen">
+                <span class="cen">
+                    <h5><p><%=time_ago_in_words(mandal.created_at)%></p>
+                        <p><%=mandal.user.email%></p></h5>
+            <!--<p>글번호 : <%=mandal.id%></p>-->
+            </div>
+        </div>
+        <br>
+        <div class="row" style="width:100%">
+        <div class="mandal_body">
+            <div class="row">
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box11 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box12 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box13 %></span></div>
+                <div class="whitespace"></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box14 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box15 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box16 %></span></div>
+                <div class="whitespace"></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box17 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box18 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box19 %></span></div>
+            </div>
+            <div class="row">
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box21 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box44 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box23 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box24 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box45 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box26 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box27 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box46 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box29 %></span></div>
+            </div>
+            <div class="row">
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box31 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box32 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box33 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box34 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box35 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box36 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box37 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box38 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box39 %></span></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box41 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box42 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box43 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box44 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box45 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box46 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box47 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box48 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box49 %></span></div>
+            </div>
+            <div class="row">
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box51 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box54 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box53 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box54 %></span></div>
+                <div class="mandal_data subject1 parantcen"><span class="cen"><%= mandal.box55 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box56 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box57 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box56 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box59 %></span></div>
+            </div>
+            <div class="row">
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box61 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box62 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box63 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box64 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box65 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box66 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box67 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box68 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box69 %></span></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box71 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box72 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box73 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box74 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box75 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box76 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box77 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box78 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box79 %></span></div>
+            </div>
+            <div class="row">
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box81 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box64 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box83 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box84 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box65 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box86 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box87 %></span></div>
+                <div class="mandal_data subject2 parantcen"><span class="cen"><%= mandal.box66 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box89 %></span></div>
+            </div>
+            <div class="row">
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box91 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box92 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box93 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box94 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box95 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box96 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box97 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box98 %></span></div>
+                <div class="mandal_data subject3 parantcen"><span class="cen"><%= mandal.box99 %></span></div>
+            </div>
+            <br>
+            </div>
+            </div>
+        <hr>
+        <hr>
+    <% end %>
+</div>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'home#index'
+  root 'home#index' 
   get 'home/index'
+  get 'home/index_table'
+  get 'home/index_div'
 
   get 'home/create'
   post 'home/write'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
 
   get 'home/remove/:mandal_id' => 'home#remove'
   get 'home/mylist'
+  get 'home/mylist_simple'
   
   get 'home/suggestion'
   post 'home/suggest'

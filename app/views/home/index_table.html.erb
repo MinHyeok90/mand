@@ -1,0 +1,201 @@
+<style>
+/*중앙정렬 위한 코드*/
+.parantcen {
+  text-align: center;
+}
+/*테이블 스타일*/
+table, th, td {
+    border: 1px solid white;
+    
+    /*영어로 인해 td가 밀리는 것 방지*/
+    border-collapse: collapse;
+    word-break:break-all;
+}
+th, td {
+    padding: 15px;
+    width : 11%;
+    padding :10px;
+    margin: 10px 10px 10px 10px;
+}
+
+.box{
+    height:90px;
+    text-align : center;
+    font-size: 0.9em;
+}
+/*중심목표*/
+.subject1{
+    color:red;
+    font-weight:bold;
+    background-color:#fff;
+    border:solid red 1px;
+}
+/*중간목표*/
+.subject2{
+    font-weight:bold;
+    background-color:#ccc;
+}
+/*말단목표*/
+.subject3 {
+    background-color:#eee;
+}
+p.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+}
+.whilespace{
+    width:10px
+}
+.mandal_table{
+    width:100%;
+    text-align: center;
+}
+/*중앙정렬위한 코드*/
+/*.parantcen {*/
+/*  display: table;*/
+/*  text-align: center;*/
+/*}*/
+/*span.cen {*/
+/*  display: table-cell;*/
+/*  vertical-align: middle;*/
+/*}*/
+.title{
+  ;
+}
+</style>
+<div class="container">
+    <div class="row">
+        <label for="goal">이루고 싶은 목표가 있나요?</label>
+        <form action="/home/create" method="GET">
+          <div class="form-group col-md-12 col-xs-12">
+            <input name="goal" type="text" maxlength="20" class="form-control" id="exampleInputEmail1" placeholder="목표가 무엇인가요? 짧고 명확하게 써보세요! 20자 이내">
+          </div>
+          <div class="col-md-12 col-xs-12"><button type="submit" class="btn btn-default">목표 작성하기</button></div>
+        </form>
+    </div>
+    <hr>
+    <% @mandalarts.each do |mandal| %>
+        <div class="row">
+            <!--one mandal-->
+            <div class="col-xs-9 parantcen"><h1><%=mandal.title%></h1></div>
+            <div class="col-xs-3 parantcen">
+                <span class="cen">
+                    <h5><p><%=time_ago_in_words(mandal.created_at)%></p>
+                        <p><%=mandal.user.email%></p></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="">          
+                <table class="mandal_table">
+                    <thead>
+                        <!--<tr></tr>-->
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box11 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box12 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box13 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box14 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box15 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box16 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box17 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box18 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box19 %></span></td>
+                        </tr>
+                        <tr>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box21 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box44 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box23 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box24 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box45 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box26 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box27 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box46 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box29 %></span></td>
+                        </tr>
+                        <tr>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box31 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box32 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box33 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box34 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box35 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box36 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box37 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box38 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box39 %></span></td>
+                        </tr>
+                        <tr>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box41 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box42 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box43 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box44 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box45 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box46 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box47 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box48 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box49 %></span></td>
+                        </tr>
+                        <tr>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box51 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box54 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box53 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box54 %></span></td>
+                            <td class="box subject1 parantcen"><span class="cen"><%= mandal.box55 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box56 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box57 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box56 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box59 %></span></td>
+                        </tr>
+                        <tr>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box61 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box62 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box63 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box64 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box65 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box66 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box67 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box68 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box69 %></span></td>
+                        </tr>
+                        <tr>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box71 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box72 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box73 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box74 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box75 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box76 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box77 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box78 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box79 %></span></td>
+                        </tr>
+                        <tr>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box81 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box64 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box83 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box84 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box65 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box86 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box87 %></span></td>
+                            <td class="box subject2 parantcen"><span class="cen"><%= mandal.box66 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box89 %></span></td>
+                        </tr>
+                        <tr>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box91 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box92 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box93 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box94 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box95 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box96 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box97 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box98 %></span></td>
+                            <td class="box subject3 parantcen"><span class="cen"><%= mandal.box99 %></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <hr>
+    <% end %>
+</div>

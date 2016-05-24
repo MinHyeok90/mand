@@ -3,6 +3,10 @@
   border-top: 0px;
   background-color:#ff3;
 }
+.centerTextarea{
+  color:red;
+  font-weight:bold;
+}
 </style>
 <form action="/home/write" method="POST">
 <div class="container">
@@ -29,7 +33,7 @@
           <tr>
           <% (1..9).each do |j| %>
             <% if i== 5 && j==5 %>
-              <td><textarea autofocus="" class="form-control" rows="3" name="box<%=i%><%=j%>" id="box<%=i%><%=j%>" maxlength="20" style="width:100%"
+              <td><textarea autofocus="" class="form-control centerTextarea" rows="3" name="box<%=i%><%=j%>" id="box<%=i%><%=j%>" maxlength="20" style="width:100%"
               style="color:red;" placeholder="목표를 작성해 주세요 : 20자 이내"><%=@goal%></textarea></td>
             <%  #이하 disable출력코드 %>
             <% elsif  ((i == 2 && j == 2) || 
