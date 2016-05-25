@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/home/test'
   
   get '/home/copy/:mandal_id' => 'home#copy'
+  get '/home/fileout'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

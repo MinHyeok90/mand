@@ -530,4 +530,14 @@ class HomeController < ApplicationController
       redirect_to "/users/sign_in"
     end
   end
+  def fileout
+    aFile = File.new("test.txt", "w")
+    # 파일 관련 작업들
+    everymandal=Mandalart.all
+    everymandal.each do |i|
+      puts aFile.syswrite(everymandal.id)
+      puts aFile.syswrite(everymandal.title)
+    end
+    aFile.close
+  end
 end
