@@ -333,10 +333,9 @@ class HomeController < ApplicationController
     
     if user_signed_in?
       @mylist=Mandalart.where("user_id = ?", current_user).reverse
-      
-      @selected_mandal = @mylist.first
-      unless  params[:mandal_id].nil?   #만일 선택된 만다라트가 있다면
-        @selected_mandal = params[:mandal_id].to_i #해당 만다라트 id로 초기화 -> 뷰에서 해당 만다라트를 active할것임.
+      @selected_mandal = @mylist.first.id.to_i  #우선 첫번째 만다라트로 설정해둠.
+      unless  params[:mandal_id].nil?           #하지만 선택된 만다라트가 있다면
+        @selected_mandal = params[:mandal_id].to_i #해당 만다라트 id로 초기화 -> 뷰에서 해당 만다라트를 active할것임. 만일 선택되지 않았다면 첫번째 만다라트가 출력됨.
       end
     else
       redirect_to "/users/sign_in"
