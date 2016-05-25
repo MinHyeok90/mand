@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   get 'home/remove/:mandal_id' => 'home#remove'
   get 'home/mylist'
-  get 'home/mylist/:mandal_id' => 'home#mylist'
   get 'home/mylist_simple'
   get 'home/mylist_simple/:mandal_id' => 'home#mylist_simple'
   
