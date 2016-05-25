@@ -101,13 +101,12 @@ span.cen {
      <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <%@mylist.each do |mandal| %>
-          <li role="presentation" <% if @flag=="first" %> <%='class=active'%><% @flag="second" end%>><a href="#<%=mandal.id%>" aria-controls="<%=mandal.id%>" role="tab" data-toggle="tab"><%=mandal.title%></a></li>
+          <li role="presentation" <% if @selected_mandal==mandal.id %> <%='class=active'%><% end %>><a href="#<%=mandal.id%>" aria-controls="<%=mandal.id%>" role="tab" data-toggle="tab"><%=mandal.title%></a></li>
       <% end %>
     </ul>
-
   <div class="tab-content">
     <% @mylist.each do |mandal| %>
-        <div role="tabpanel" class="tab-pane <% if @flag=="second" %> <%="active" %><% @flag="third" end%>" id="<%=mandal.id%>">
+        <div role="tabpanel" class="tab-pane <% if @selected_mandal== mandal.id %> <%="active" %><% end %>" id="<%=mandal.id%>">
             <!--one mandal-->
         <div class="row title">
             <div class="col-xs-9 parantcen"><h1><%=mandal.title%></h1></div>
@@ -287,7 +286,6 @@ span.cen {
         if (mid_idx[1] != null)
             $("#"+idandstat[0] + "_stat" + mid_idx[1]).removeClass('stat_'+statarray[idx]).addClass('stat_' + stat_str)
         
-        console.log("바꾸기 직전!")
         $.ajax({
          method: "get",
          url: "/home/mylist/update_stat",
@@ -299,7 +297,6 @@ span.cen {
             //22, 25, 28같은 중간 목표들이 클릭된 경우, 연관된 중간목표도 변경.
             if (mid_idx[1] != null)
                 $("#"+idandstat[0] + "_stat" + mid_idx[1]).removeClass('stat_'+statarray[idx]).addClass('stat_' + stat_str)
-                console.log("성공")
             
          },
           error:function(request,status,error){

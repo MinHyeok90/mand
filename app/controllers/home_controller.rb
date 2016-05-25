@@ -209,105 +209,105 @@ class HomeController < ApplicationController
   end
 
   def realupdate
-    newmandal = Mandalart.find(params[:mandal_id])
-    if newmandal.user == current_user
-      newmandal.shared = params[:shared]
+    update_mandal = Mandalart.find(params[:mandal_id])
+    if update_mandal.user == current_user
+      update_mandal.shared = params[:shared]
       
       if params[:title].empty?            #제목칸을 적지 않았다면 => 중심 목표를 title로 작성.
-        newmandal.title = params[:box55]
+        update_mandal.title = params[:box55]
       else
-        newmandal.title = params[:title]
+        update_mandal.title = params[:title]
       end
       
-      newmandal.box11 = params[:box11]
-      newmandal.box12 = params[:box12]
-      newmandal.box13 = params[:box13]
-      newmandal.box14 = params[:box14]
-      newmandal.box15 = params[:box15]
-      newmandal.box16 = params[:box16]
-      newmandal.box17 = params[:box17]
-      newmandal.box18 = params[:box18]
-      newmandal.box19 = params[:box19]
+      update_mandal.box11 = params[:box11]
+      update_mandal.box12 = params[:box12]
+      update_mandal.box13 = params[:box13]
+      update_mandal.box14 = params[:box14]
+      update_mandal.box15 = params[:box15]
+      update_mandal.box16 = params[:box16]
+      update_mandal.box17 = params[:box17]
+      update_mandal.box18 = params[:box18]
+      update_mandal.box19 = params[:box19]
       
-      newmandal.box21 = params[:box21]
-      newmandal.box23 = params[:box23]
-      newmandal.box24 = params[:box24]
-      newmandal.box26 = params[:box26]
-      newmandal.box27 = params[:box27]
-      newmandal.box29 = params[:box29]
+      update_mandal.box21 = params[:box21]
+      update_mandal.box23 = params[:box23]
+      update_mandal.box24 = params[:box24]
+      update_mandal.box26 = params[:box26]
+      update_mandal.box27 = params[:box27]
+      update_mandal.box29 = params[:box29]
       
-      newmandal.box31 = params[:box31]
-      newmandal.box32 = params[:box32]
-      newmandal.box33 = params[:box33]
-      newmandal.box34 = params[:box34]
-      newmandal.box35 = params[:box35]
-      newmandal.box36 = params[:box36]
-      newmandal.box37 = params[:box37]
-      newmandal.box38 = params[:box38]
-      newmandal.box39 = params[:box39]
+      update_mandal.box31 = params[:box31]
+      update_mandal.box32 = params[:box32]
+      update_mandal.box33 = params[:box33]
+      update_mandal.box34 = params[:box34]
+      update_mandal.box35 = params[:box35]
+      update_mandal.box36 = params[:box36]
+      update_mandal.box37 = params[:box37]
+      update_mandal.box38 = params[:box38]
+      update_mandal.box39 = params[:box39]
       
-      newmandal.box41 = params[:box41]
-      newmandal.box42 = params[:box42]
-      newmandal.box43 = params[:box43]
-      newmandal.box44 = params[:box44]
-      newmandal.box45 = params[:box45]
-      newmandal.box46 = params[:box46]
-      newmandal.box47 = params[:box47]
-      newmandal.box48 = params[:box48]
-      newmandal.box49 = params[:box49]
+      update_mandal.box41 = params[:box41]
+      update_mandal.box42 = params[:box42]
+      update_mandal.box43 = params[:box43]
+      update_mandal.box44 = params[:box44]
+      update_mandal.box45 = params[:box45]
+      update_mandal.box46 = params[:box46]
+      update_mandal.box47 = params[:box47]
+      update_mandal.box48 = params[:box48]
+      update_mandal.box49 = params[:box49]
       
-      newmandal.box51 = params[:box51]
-      newmandal.box53 = params[:box53]
-      newmandal.box54 = params[:box54]
-      newmandal.box55 = params[:box55]
-      newmandal.box56 = params[:box56]
-      newmandal.box57 = params[:box57]
-      newmandal.box59 = params[:box59]
+      update_mandal.box51 = params[:box51]
+      update_mandal.box53 = params[:box53]
+      update_mandal.box54 = params[:box54]
+      update_mandal.box55 = params[:box55]
+      update_mandal.box56 = params[:box56]
+      update_mandal.box57 = params[:box57]
+      update_mandal.box59 = params[:box59]
       
-      newmandal.box61 = params[:box61]
-      newmandal.box62 = params[:box62]
-      newmandal.box63 = params[:box63]
-      newmandal.box64 = params[:box64]
-      newmandal.box65 = params[:box65]
-      newmandal.box66 = params[:box66]
-      newmandal.box67 = params[:box67]
-      newmandal.box68 = params[:box68]
-      newmandal.box69 = params[:box69]
+      update_mandal.box61 = params[:box61]
+      update_mandal.box62 = params[:box62]
+      update_mandal.box63 = params[:box63]
+      update_mandal.box64 = params[:box64]
+      update_mandal.box65 = params[:box65]
+      update_mandal.box66 = params[:box66]
+      update_mandal.box67 = params[:box67]
+      update_mandal.box68 = params[:box68]
+      update_mandal.box69 = params[:box69]
       
-      newmandal.box71 = params[:box71]
-      newmandal.box72 = params[:box72]
-      newmandal.box73 = params[:box73]
-      newmandal.box74 = params[:box74]
-      newmandal.box75 = params[:box75]
-      newmandal.box76 = params[:box76]
-      newmandal.box77 = params[:box77]
-      newmandal.box78 = params[:box78]
-      newmandal.box79 = params[:box79]
+      update_mandal.box71 = params[:box71]
+      update_mandal.box72 = params[:box72]
+      update_mandal.box73 = params[:box73]
+      update_mandal.box74 = params[:box74]
+      update_mandal.box75 = params[:box75]
+      update_mandal.box76 = params[:box76]
+      update_mandal.box77 = params[:box77]
+      update_mandal.box78 = params[:box78]
+      update_mandal.box79 = params[:box79]
       
-      newmandal.box81 = params[:box81]
-      newmandal.box83 = params[:box83]
-      newmandal.box84 = params[:box84]
-      newmandal.box86 = params[:box86]
-      newmandal.box87 = params[:box87]
-      newmandal.box89 = params[:box89]
+      update_mandal.box81 = params[:box81]
+      update_mandal.box83 = params[:box83]
+      update_mandal.box84 = params[:box84]
+      update_mandal.box86 = params[:box86]
+      update_mandal.box87 = params[:box87]
+      update_mandal.box89 = params[:box89]
       
-      newmandal.box91 = params[:box91]
-      newmandal.box92 = params[:box92]
-      newmandal.box93 = params[:box93]
-      newmandal.box94 = params[:box94]
-      newmandal.box95 = params[:box95]
-      newmandal.box96 = params[:box96]
-      newmandal.box97 = params[:box97]
-      newmandal.box98 = params[:box98]
-      newmandal.box99 = params[:box99]
+      update_mandal.box91 = params[:box91]
+      update_mandal.box92 = params[:box92]
+      update_mandal.box93 = params[:box93]
+      update_mandal.box94 = params[:box94]
+      update_mandal.box95 = params[:box95]
+      update_mandal.box96 = params[:box96]
+      update_mandal.box97 = params[:box97]
+      update_mandal.box98 = params[:box98]
+      update_mandal.box99 = params[:box99]
       
-      if newmandal.save
-      	redirect_to "/home/mylist"
+      if update_mandal.save
+      	redirect_to "/home/mylist_simple/" << update_mandal.id.to_s
       else
-      	render :text => newmandal.errors.messages[:title].first
+      	render :text => update_mandal.errors.messages[:title].first
       end
     else
-      redirect_to "/home/mylist"
+      redirect_to "/home/mylist" 
     end
   end
   
@@ -320,7 +320,6 @@ class HomeController < ApplicationController
   end
   
   def mylist
-    redirect_to "/home/mylist_simple"
     @status = "mylist"
     if user_signed_in?
       @mylist=Mandalart.where("user_id = ?", current_user).reverse
@@ -331,9 +330,14 @@ class HomeController < ApplicationController
   
   def mylist_simple
     @status = "mylist"
-    @flag = "first"
+    
     if user_signed_in?
       @mylist=Mandalart.where("user_id = ?", current_user).reverse
+      
+      @selected_mandal = @mylist.first
+      unless  params[:mandal_id].nil?   #만일 선택된 만다라트가 있다면
+        @selected_mandal = params[:mandal_id].to_i #해당 만다라트 id로 초기화 -> 뷰에서 해당 만다라트를 active할것임.
+      end
     else
       redirect_to "/users/sign_in"
     end
