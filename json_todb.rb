@@ -1,8 +1,10 @@
 #!/usr/bin/ruby
 require 'rubygems'
 require 'json'
+# 사용법 : json_tofile에 있는 내용을 rails c 콘솔에 입력 -> test.json파일 생성 && json_todb에 있는 내용 마찬가지로 콘솔에 입력 -> db에 저장됨.
 
 #json파일로부터 데이터를 읽어, DB에 저장한다.
+#만다라트 모델의 id 는 입력된 마지막 값으로부터 증가함을 확인했습니다.
 file = open("test.json")
 json = file.read
 parsed = JSON.parse(json)

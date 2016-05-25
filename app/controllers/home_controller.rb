@@ -530,14 +530,370 @@ class HomeController < ApplicationController
       redirect_to "/users/sign_in"
     end
   end
-  def fileout
-    aFile = File.new("test.txt", "w")
-    # 파일 관련 작업들
-    everymandal=Mandalart.all
-    everymandal.each do |i|
-      puts aFile.syswrite(everymandal.id)
-      puts aFile.syswrite(everymandal.title)
+  
+  def manager_page
+    # 관리자 권한 확인
+    # 유저 속성에 권한 넣거나, 관리자 테이블.
+    # 관리자 권한 획득방법....을 주면 안되지. 이건 콘솔에서만 되도록 해야지.
+    
+    if current_user.id != 1       #관리자는 1번 유저.
+      redirect_to '/home/mylist'
     end
+  end
+  
+  def manager_uploading_json
+    if current_user.id != 1       #관리자는 1번 유저.
+      redirect_to '/home/mylist'
+    end
+    # file = File.new("mandal.json", "w") 
+    @json = params[:jsonfile]
+    #redirect_to '/home/manager_page'
+  end
+  
+  def manager_json_upload #외부 json 파일 업로드 페이지
+  end
+  
+  def manager_write_json_backup
+    if current_user.id != 1       #관리자는 1번 유저.
+      redirect_to '/home/mylist'
+    end
+    every_mandal = Mandalart.all
+    k = Hash.new
+    every_mandal.each do |mandal|
+      j = Hash.new
+      j["id"] = mandal.id;
+      j["title"] = mandal.title;
+      j["user_id"] = mandal.user_id;
+      j["shared"] = mandal.shared;
+      j["box11"] = mandal.box11;
+      j["box12"] = mandal.box12;
+      j["box13"] = mandal.box13;
+      j["box14"] = mandal.box14;
+      j["box15"] = mandal.box15;
+      j["box16"] = mandal.box16;
+      j["box17"] = mandal.box17;
+      j["box18"] = mandal.box18;
+      j["box19"] = mandal.box19;
+      j["box21"] = mandal.box21;
+      j["box23"] = mandal.box23;
+      j["box24"] = mandal.box24;
+      j["box26"] = mandal.box26;
+      j["box27"] = mandal.box27;
+      j["box29"] = mandal.box29;
+      j["box31"] = mandal.box31;
+      j["box32"] = mandal.box32;
+      j["box33"] = mandal.box33;
+      j["box34"] = mandal.box34;
+      j["box35"] = mandal.box35;
+      j["box36"] = mandal.box36;
+      j["box37"] = mandal.box37;
+      j["box38"] = mandal.box38;
+      j["box39"] = mandal.box39;
+      j["box41"] = mandal.box41;
+      j["box42"] = mandal.box42;
+      j["box43"] = mandal.box43;
+      j["box44"] = mandal.box44;
+      j["box45"] = mandal.box45;
+      j["box46"] = mandal.box46;
+      j["box47"] = mandal.box47;
+      j["box48"] = mandal.box48;
+      j["box49"] = mandal.box49;
+      j["box51"] = mandal.box51;
+      j["box53"] = mandal.box53;
+      j["box54"] = mandal.box54;
+      j["box55"] = mandal.box55;
+      j["box56"] = mandal.box56;
+      j["box57"] = mandal.box57;
+      j["box59"] = mandal.box59;
+      j["box61"] = mandal.box61;
+      j["box62"] = mandal.box62;
+      j["box63"] = mandal.box63;
+      j["box64"] = mandal.box64;
+      j["box65"] = mandal.box65;
+      j["box66"] = mandal.box66;
+      j["box67"] = mandal.box67;
+      j["box68"] = mandal.box68;
+      j["box69"] = mandal.box69;
+      j["box71"] = mandal.box71;
+      j["box72"] = mandal.box72;
+      j["box73"] = mandal.box73;
+      j["box74"] = mandal.box74;
+      j["box75"] = mandal.box75;
+      j["box76"] = mandal.box76;
+      j["box77"] = mandal.box77;
+      j["box78"] = mandal.box78;
+      j["box79"] = mandal.box79;
+      j["box81"] = mandal.box81;
+      j["box83"] = mandal.box83;
+      j["box84"] = mandal.box84;
+      j["box86"] = mandal.box86;
+      j["box87"] = mandal.box87;
+      j["box89"] = mandal.box89;
+      j["box91"] = mandal.box91;
+      j["box92"] = mandal.box92;
+      j["box93"] = mandal.box93;
+      j["box94"] = mandal.box94;
+      j["box95"] = mandal.box95;
+      j["box96"] = mandal.box96;
+      j["box97"] = mandal.box97;
+      j["box98"] = mandal.box98;
+      j["box99"] = mandal.box99;
+      j["stat11"] = mandal.stat11;
+      j["stat12"] = mandal.stat12;
+      j["stat13"] = mandal.stat13;
+      j["stat14"] = mandal.stat14;
+      j["stat15"] = mandal.stat15;
+      j["stat16"] = mandal.stat16;
+      j["stat17"] = mandal.stat17;
+      j["stat18"] = mandal.stat18;
+      j["stat19"] = mandal.stat19;
+      j["stat21"] = mandal.stat21;
+      j["stat23"] = mandal.stat23;
+      j["stat24"] = mandal.stat24;
+      j["stat26"] = mandal.stat26;
+      j["stat27"] = mandal.stat27;
+      j["stat29"] = mandal.stat29;
+      j["stat31"] = mandal.stat31;
+      j["stat32"] = mandal.stat32;
+      j["stat33"] = mandal.stat33;
+      j["stat34"] = mandal.stat34;
+      j["stat35"] = mandal.stat35;
+      j["stat36"] = mandal.stat36;
+      j["stat37"] = mandal.stat37;
+      j["stat38"] = mandal.stat38;
+      j["stat39"] = mandal.stat39;
+      j["stat41"] = mandal.stat41;
+      j["stat42"] = mandal.stat42;
+      j["stat43"] = mandal.stat43;
+      j["stat44"] = mandal.stat44;
+      j["stat45"] = mandal.stat45;
+      j["stat46"] = mandal.stat46;
+      j["stat47"] = mandal.stat47;
+      j["stat48"] = mandal.stat48;
+      j["stat49"] = mandal.stat49;
+      j["stat51"] = mandal.stat51;
+      j["stat53"] = mandal.stat53;
+      j["stat54"] = mandal.stat54;
+      j["stat55"] = mandal.stat55;
+      j["stat56"] = mandal.stat56;
+      j["stat57"] = mandal.stat57;
+      j["stat59"] = mandal.stat59;
+      j["stat61"] = mandal.stat61;
+      j["stat62"] = mandal.stat62;
+      j["stat63"] = mandal.stat63;
+      j["stat64"] = mandal.stat64;
+      j["stat65"] = mandal.stat65;
+      j["stat66"] = mandal.stat66;
+      j["stat67"] = mandal.stat67;
+      j["stat68"] = mandal.stat68;
+      j["stat69"] = mandal.stat69;
+      j["stat71"] = mandal.stat71;
+      j["stat72"] = mandal.stat72;
+      j["stat73"] = mandal.stat73;
+      j["stat74"] = mandal.stat74;
+      j["stat75"] = mandal.stat75;
+      j["stat76"] = mandal.stat76;
+      j["stat77"] = mandal.stat77;
+      j["stat78"] = mandal.stat78;
+      j["stat79"] = mandal.stat79;
+      j["stat81"] = mandal.stat81;
+      j["stat83"] = mandal.stat83;
+      j["stat84"] = mandal.stat84;
+      j["stat86"] = mandal.stat86;
+      j["stat87"] = mandal.stat87;
+      j["stat89"] = mandal.stat89;
+      j["stat91"] = mandal.stat91;
+      j["stat92"] = mandal.stat92;
+      j["stat93"] = mandal.stat93;
+      j["stat94"] = mandal.stat94;
+      j["stat95"] = mandal.stat95;
+      j["stat96"] = mandal.stat96;
+      j["stat97"] = mandal.stat97;
+      j["stat98"] = mandal.stat98;
+      j["stat99"] = mandal.stat99;
+      j["created_at"] = mandal.created_at;
+      j["updated_at"] = mandal.updated_at;
+      k["mandal" << mandal.id.to_s] = j;
+    end
+    aFile = File.new("mandal.json", "w")  #mandal.json으로 mandalart의 모든 내용을 백업함.
+    aFile.syswrite(k.to_json)
     aFile.close
   end
+  
+  def manager_mandaldown
+    if current_user.id != 1       #관리자는 1번 유저.
+      redirect_to '/home/mylist'
+    else
+      send_file("mandal.json")
+    end
+  end
+  
+  def manager_read_json_backup
+    if current_user.id != 1       #관리자는 1번 유저.
+      redirect_to '/home/mylist'
+    end
+    
+    file = open("mandal.json")  #backup한 파일을 불러 mandalart를 복구함. 단, 유저는 복구하지 않음.
+    json = file.read
+    parsed = JSON.parse(json)
+    parsed.keys.each do |i|
+      newmandal = Mandalart.new
+      newmandal.id = parsed[i]["id"]    # 주의! 같은 id가 있으면 안됨.
+      newmandal.title = parsed[i]["title"]
+      newmandal.user_id = parsed[i]["user_id"]
+      newmandal.shared = parsed[i]["shared"]
+      
+      newmandal.box11 =  parsed[i]["box11"]
+      newmandal.box12 =  parsed[i]["box12"]
+      newmandal.box13 =  parsed[i]["box13"]
+      newmandal.box14 =  parsed[i]["box14"]
+      newmandal.box15 =  parsed[i]["box15"]
+      newmandal.box16 =  parsed[i]["box16"]
+      newmandal.box17 =  parsed[i]["box17"]
+      newmandal.box18 =  parsed[i]["box18"]
+      newmandal.box19 =  parsed[i]["box19"]
+      newmandal.box21 =  parsed[i]["box21"]
+      newmandal.box23 =  parsed[i]["box23"]
+      newmandal.box24 =  parsed[i]["box24"]
+      newmandal.box26 =  parsed[i]["box26"]
+      newmandal.box27 =  parsed[i]["box27"]
+      newmandal.box29 =  parsed[i]["box29"]
+      newmandal.box31 =  parsed[i]["box31"]
+      newmandal.box32 =  parsed[i]["box32"]
+      newmandal.box33 =  parsed[i]["box33"]
+      newmandal.box34 =  parsed[i]["box34"]
+      newmandal.box35 =  parsed[i]["box35"]
+      newmandal.box36 =  parsed[i]["box36"]
+      newmandal.box37 =  parsed[i]["box37"]
+      newmandal.box38 =  parsed[i]["box38"]
+      newmandal.box39 =  parsed[i]["box39"]
+      newmandal.box41 =  parsed[i]["box41"]
+      newmandal.box42 =  parsed[i]["box42"]
+      newmandal.box43 =  parsed[i]["box43"]
+      newmandal.box44 =  parsed[i]["box44"]
+      newmandal.box45 =  parsed[i]["box45"]
+      newmandal.box46 =  parsed[i]["box46"]
+      newmandal.box47 =  parsed[i]["box47"]
+      newmandal.box48 =  parsed[i]["box48"]
+      newmandal.box49 =  parsed[i]["box49"]
+      newmandal.box51 =  parsed[i]["box51"]
+      newmandal.box53 =  parsed[i]["box53"]
+      newmandal.box54 =  parsed[i]["box54"]
+      newmandal.box55 =  parsed[i]["box55"]
+      newmandal.box56 =  parsed[i]["box56"]
+      newmandal.box57 =  parsed[i]["box57"]
+      newmandal.box59 =  parsed[i]["box59"]
+      newmandal.box61 =  parsed[i]["box61"]
+      newmandal.box62 =  parsed[i]["box62"]
+      newmandal.box63 =  parsed[i]["box63"]
+      newmandal.box64 =  parsed[i]["box64"]
+      newmandal.box65 =  parsed[i]["box65"]
+      newmandal.box66 =  parsed[i]["box66"]
+      newmandal.box67 =  parsed[i]["box67"]
+      newmandal.box68 =  parsed[i]["box68"]
+      newmandal.box69 =  parsed[i]["box69"]
+      newmandal.box71 =  parsed[i]["box71"]
+      newmandal.box72 =  parsed[i]["box72"]
+      newmandal.box73 =  parsed[i]["box73"]
+      newmandal.box74 =  parsed[i]["box74"]
+      newmandal.box75 =  parsed[i]["box75"]
+      newmandal.box76 =  parsed[i]["box76"]
+      newmandal.box77 =  parsed[i]["box77"]
+      newmandal.box78 =  parsed[i]["box78"]
+      newmandal.box79 =  parsed[i]["box79"]
+      newmandal.box81 =  parsed[i]["box81"]
+      newmandal.box83 =  parsed[i]["box83"]
+      newmandal.box84 =  parsed[i]["box84"]
+      newmandal.box86 =  parsed[i]["box86"]
+      newmandal.box87 =  parsed[i]["box87"]
+      newmandal.box89 =  parsed[i]["box89"]
+      newmandal.box91 =  parsed[i]["box91"]
+      newmandal.box92 =  parsed[i]["box92"]
+      newmandal.box93 =  parsed[i]["box93"]
+      newmandal.box94 =  parsed[i]["box94"]
+      newmandal.box95 =  parsed[i]["box95"]
+      newmandal.box96 =  parsed[i]["box96"]
+      newmandal.box97 =  parsed[i]["box97"]
+      newmandal.box98 =  parsed[i]["box98"]
+      newmandal.box99 =  parsed[i]["box99"]
+      newmandal.stat11 = parsed[i]["stat11"]
+      newmandal.stat12 = parsed[i]["stat12"]
+      newmandal.stat13 = parsed[i]["stat13"]
+      newmandal.stat14 = parsed[i]["stat14"]
+      newmandal.stat15 = parsed[i]["stat15"]
+      newmandal.stat16 = parsed[i]["stat16"]
+      newmandal.stat17 = parsed[i]["stat17"]
+      newmandal.stat18 = parsed[i]["stat18"]
+      newmandal.stat19 = parsed[i]["stat19"]
+      newmandal.stat21 = parsed[i]["stat21"]
+      newmandal.stat23 = parsed[i]["stat23"]
+      newmandal.stat24 = parsed[i]["stat24"]
+      newmandal.stat26 = parsed[i]["stat26"]
+      newmandal.stat27 = parsed[i]["stat27"]
+      newmandal.stat29 = parsed[i]["stat29"]
+      newmandal.stat31 = parsed[i]["stat31"]
+      newmandal.stat32 = parsed[i]["stat32"]
+      newmandal.stat33 = parsed[i]["stat33"]
+      newmandal.stat34 = parsed[i]["stat34"]
+      newmandal.stat35 = parsed[i]["stat35"]
+      newmandal.stat36 = parsed[i]["stat36"]
+      newmandal.stat37 = parsed[i]["stat37"]
+      newmandal.stat38 = parsed[i]["stat38"]
+      newmandal.stat39 = parsed[i]["stat39"]
+      newmandal.stat41 = parsed[i]["stat41"]
+      newmandal.stat42 = parsed[i]["stat42"]
+      newmandal.stat43 = parsed[i]["stat43"]
+      newmandal.stat44 = parsed[i]["stat44"]
+      newmandal.stat45 = parsed[i]["stat45"]
+      newmandal.stat46 = parsed[i]["stat46"]
+      newmandal.stat47 = parsed[i]["stat47"]
+      newmandal.stat48 = parsed[i]["stat48"]
+      newmandal.stat49 = parsed[i]["stat49"]
+      newmandal.stat51 = parsed[i]["stat51"]
+      newmandal.stat53 = parsed[i]["stat53"]
+      newmandal.stat54 = parsed[i]["stat54"]
+      newmandal.stat55 = parsed[i]["stat55"]
+      newmandal.stat56 = parsed[i]["stat56"]
+      newmandal.stat57 = parsed[i]["stat57"]
+      newmandal.stat59 = parsed[i]["stat59"]
+      newmandal.stat61 = parsed[i]["stat61"]
+      newmandal.stat62 = parsed[i]["stat62"]
+      newmandal.stat63 = parsed[i]["stat63"]
+      newmandal.stat64 = parsed[i]["stat64"]
+      newmandal.stat65 = parsed[i]["stat65"]
+      newmandal.stat66 = parsed[i]["stat66"]
+      newmandal.stat67 = parsed[i]["stat67"]
+      newmandal.stat68 = parsed[i]["stat68"]
+      newmandal.stat69 = parsed[i]["stat69"]
+      newmandal.stat71 = parsed[i]["stat71"]
+      newmandal.stat72 = parsed[i]["stat72"]
+      newmandal.stat73 = parsed[i]["stat73"]
+      newmandal.stat74 = parsed[i]["stat74"]
+      newmandal.stat75 = parsed[i]["stat75"]
+      newmandal.stat76 = parsed[i]["stat76"]
+      newmandal.stat77 = parsed[i]["stat77"]
+      newmandal.stat78 = parsed[i]["stat78"]
+      newmandal.stat79 = parsed[i]["stat79"]
+      newmandal.stat81 = parsed[i]["stat81"]
+      newmandal.stat83 = parsed[i]["stat83"]
+      newmandal.stat84 = parsed[i]["stat84"]
+      newmandal.stat86 = parsed[i]["stat86"]
+      newmandal.stat87 = parsed[i]["stat87"]
+      newmandal.stat89 = parsed[i]["stat89"]
+      newmandal.stat91 = parsed[i]["stat91"]
+      newmandal.stat92 = parsed[i]["stat92"]
+      newmandal.stat93 = parsed[i]["stat93"]
+      newmandal.stat94 = parsed[i]["stat94"]
+      newmandal.stat95 = parsed[i]["stat95"]
+      newmandal.stat96 = parsed[i]["stat96"]
+      newmandal.stat97 = parsed[i]["stat97"]
+      newmandal.stat98 = parsed[i]["stat98"]
+      newmandal.stat99 = parsed[i]["stat99"]
+      
+      newmandal.created_at = parsed[i]["created_at"]
+      newmandal.updated_at = parsed[i]["updated_at"]
+      newmandal.save
+    end
+  end
+  
 end

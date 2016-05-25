@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+      <h1>매니저 페이지입니다.</h1><br>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-4 well"> <!--백업 롤백-->
+      <p>db 백업, 롤백하기</p>
+      <p>주의! rake db:drop하면 로그인도 못함. 순서 잘 숙지하고 진행</p>
+      <ol>
+        <li>
+          <p><a href="/home/write_json_backup">json으로 저장하기</a> or <a href="/home/upload_json">json 업로드하기</a></p>
+        </li>
+        <li>
+          <p>rake db:drop</p>
+        </li>
+        <li>
+          <p><b>rake db:reset</b> & <b>rake db:migrate</b></p>
+        </li>
+        <li>
+          <p><b>관리자 로그인(seed파일확인)</b></p>
+        </li>
+        <li>
+          <p><a href="/home/read_json_backup">json 복원하기</a></p>
+        </li>
+      </ol>
+    </div><!--col-md-4 : db백업롤백-->
+    <div class="col-xs-12 col-md-4 well"> <!--모든 만달 보기, 삭제-->
+      <p>만다라트들 관리하기</p>
+      <ul>
+        <li>
+          <p>만다라트 관리하러 가기</p>
+        </li>
+        <li>
+          <p>유저 관리하러 가기</p>
+        </li>
+        <li>
+          <p>제안 관리하러 가기</p>
+        </li>
+        <li>
+          <p>답글 관리하러 가기</p>
+        </li>
+      </ul>
+    </div><!--모든 만달 보기, 삭제-->
+    <hr>
+  </div>
+</div>

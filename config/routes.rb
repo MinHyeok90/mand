@@ -25,6 +25,13 @@ Rails.application.routes.draw do
   get '/home/copy/:mandal_id' => 'home#copy'
   get '/home/fileout'
   
+  #admin
+  get 'home/manager_page'
+  get 'home/json_upload' => 'home#manager_json_upload'
+  get 'home/write_json_backup' => 'home#manager_write_json_backup'
+  get 'home/read_json_backup' => 'home#manager_read_json_backup'
+  get 'home/manager_mandaldown'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
