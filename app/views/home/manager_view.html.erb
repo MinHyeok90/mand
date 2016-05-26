@@ -1,0 +1,339 @@
+<style>
+/*레이아웃*/
+.box{
+    font-size:0.8em;
+    height:80px;
+    word-break:break-all;
+}
+.box_offset{
+    margin-left:33px;
+}
+/*중심목표*/
+.subject1{
+    color:red;
+    font-weight:bold;
+    border:solid red 2px;
+}
+/*중간목표*/
+.subject2{
+    font-weight:bold;
+    border:1px dashed #999;
+}
+/*말단목표*/
+.subject3 {
+    text-align:center;
+    border:1px dashed white;
+}
+p.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em
+}
+/*중앙정렬위한 코드*/
+.parantcen {
+  display: table;
+  text-align: center;
+}
+span.cen {
+  display: table-cell;
+  vertical-align: middle;
+}
+.title{
+}
+
+/*목표별 상태따른 출력*/
+.stat_new{    /*생성완료*/
+    background-color:#eee;
+}
+.stat_continue{    /*진행중*/
+    background-color:#9ff;
+}
+.stat_done{    /*완료*/
+    background-color:#9E6;
+}
+.stat_remember{    /*지속관리*/
+    background-color:#ffa;
+}
+
+/*목표별 스타일*/
+/*.stat_new+.subject1{*/
+/*    background-color:#fff;*/
+/*    font-weight:bold;*/
+/*    color:red;*/
+/*}*/
+/*.stat_new+.subject2{*/
+/*    background-color:#ccc;*/
+/*    font-weight:bold;*/
+/*}*/
+/*.stat_continue+.subject1{*/
+/*    font-weight:bold;*/
+/*}*/
+/*.stat_continue+.subject2{*/
+/*    font-weight:bold;*/
+/*}*/
+/*.stat_done+.subject1{*/
+/*    font-weight:bold;*/
+/*}*/
+/*.stat_done+.subject2{*/
+/*    font-weight:bold;*/
+/*}*/
+/*.stat_remember+.subject1{*/
+/*    font-weight:bold;*/
+/*}*/
+/*.stat_remember+.subject2{*/
+/*    font-weight:bold;*/
+/*}*/
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="well col-md-12 col-xs-12">
+            <form action="/home/create" method="GET">
+                <div class="form-group col-md-6 col-xs-12">
+                    <input name="goal" type="text" maxlength="20" class="form-control" id="goal" placeholder="이루고 싶은 목표가 있나요? 짧고 명확하게 써보세요! (20자 이내)">
+                </div>
+                <div class="col-md-6 col-xs-12"><button type="submit" class="btn btn-default">새 목표 작성하기</button></div>
+            </form>
+        </div>
+    </div>
+    <hr>
+  <div class="row">
+     <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <%@mylist.each do |mandal| %>
+          <li role="presentation" <% if @selected_mandal==mandal.id %> <%='class=active'%><% end %>><a href="#<%=mandal.id%>" aria-controls="<%=mandal.id%>" role="tab" data-toggle="tab"><%=mandal.title%></a></li>
+      <% end %>
+    </ul>
+  <div class="tab-content">
+    <% @mylist.each do |mandal| %>
+        <div role="tabpanel" class="tab-pane <% if @selected_mandal== mandal.id %> <%="active" %><% end %>" id="<%=mandal.id%>">
+            <!--one mandal-->
+        <div class="row title">
+            <div class="col-xs-9 parantcen"><h1><%=mandal.title%></h1></div>
+            <div class="col-xs-3 parantcen">
+                <span class="cen">
+                    <h5><p><%=time_ago_in_words(mandal.created_at)%></p></h5>
+                    <a href="/home/update/<%=mandal.id%>" class="btn btn-primary">이 만다라트의 공유기능을 끕니다.(미구현)</a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_<%=mandal.id%>">
+                      이 만다라트를 삭제합니다.
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModal_<%=mandal.id%>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">만다라트 삭제</h4>
+                          </div>
+                          <div class="modal-body">
+                             <h3><b><%= mandal.title %></b></h3>정말로 삭제하시겠습니까?
+                             <p><span style="color:red">[현재 매니저 권한으로 삭제합니다.]</span></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <a href="/home/manager_mandal_remove/<%=mandal.id%>" class="btn btn-danger">삭제하기</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+            <!--<p>글번호 : <%=mandal.id%></p>-->
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div id="<%=mandal.id%>_stat11" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat11%>"><span class="cen"><%= mandal.box11 %></span></div>
+                <div id="<%=mandal.id%>_stat12" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat12%>"><span class="cen"><%= mandal.box12 %></span></div>
+                <div id="<%=mandal.id%>_stat13" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat13%>"><span class="cen"><%= mandal.box13 %></span></div>
+                <div id="<%=mandal.id%>_stat14" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat14%>"><span class="cen"><%= mandal.box14 %></span></div>
+                <div id="<%=mandal.id%>_stat15" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat15%>"><span class="cen"><%= mandal.box15 %></span></div>
+                <div id="<%=mandal.id%>_stat16" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat16%>"><span class="cen"><%= mandal.box16 %></span></div>
+                <div id="<%=mandal.id%>_stat17" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat17%>"><span class="cen"><%= mandal.box17 %></span></div>
+                <div id="<%=mandal.id%>_stat18" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat18%>"><span class="cen"><%= mandal.box18 %></span></div>
+                <div id="<%=mandal.id%>_stat19" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat19%>"><span class="cen"><%= mandal.box19 %></span></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div id="<%=mandal.id%>_stat21" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat21%>"><span class="cen"><%= mandal.box21 %></span></div>
+                <div id="<%=mandal.id%>_stat22" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat44%>"><span class="cen"><%= mandal.box44 %></span></div>
+                <div id="<%=mandal.id%>_stat23" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat23%>"><span class="cen"><%= mandal.box23 %></span></div>
+                <div id="<%=mandal.id%>_stat24" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat24%>"><span class="cen"><%= mandal.box24 %></span></div>
+                <div id="<%=mandal.id%>_stat25" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat45%>"><span class="cen"><%= mandal.box45 %></span></div>
+                <div id="<%=mandal.id%>_stat26" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat26%>"><span class="cen"><%= mandal.box26 %></span></div>
+                <div id="<%=mandal.id%>_stat27" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat27%>"><span class="cen"><%= mandal.box27 %></span></div>
+                <div id="<%=mandal.id%>_stat28" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat46%>"><span class="cen"><%= mandal.box46 %></span></div>
+                <div id="<%=mandal.id%>_stat29" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat29%>"><span class="cen"><%= mandal.box29 %></span></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div id="<%=mandal.id%>_stat31" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat31%>"><span class="cen"><%= mandal.box31 %></span></div>
+                <div id="<%=mandal.id%>_stat32" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat32%>"><span class="cen"><%= mandal.box32 %></span></div>
+                <div id="<%=mandal.id%>_stat33" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat33%>"><span class="cen"><%= mandal.box33 %></span></div>
+                <div id="<%=mandal.id%>_stat34" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat34%>"><span class="cen"><%= mandal.box34 %></span></div>
+                <div id="<%=mandal.id%>_stat35" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat35%>"><span class="cen"><%= mandal.box35 %></span></div>
+                <div id="<%=mandal.id%>_stat36" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat36%>"><span class="cen"><%= mandal.box36 %></span></div>
+                <div id="<%=mandal.id%>_stat37" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat37%>"><span class="cen"><%= mandal.box37 %></span></div>
+                <div id="<%=mandal.id%>_stat38" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat38%>"><span class="cen"><%= mandal.box38 %></span></div>
+                <div id="<%=mandal.id%>_stat39" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat39%>"><span class="cen"><%= mandal.box39 %></span></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div id="<%=mandal.id%>_stat41" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat41%>"><span class="cen"><%= mandal.box41 %></span></div>
+                <div id="<%=mandal.id%>_stat42" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat42%>"><span class="cen"><%= mandal.box42 %></span></div>
+                <div id="<%=mandal.id%>_stat43" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat43%>"><span class="cen"><%= mandal.box43 %></span></div>
+                <div id="<%=mandal.id%>_stat44" class="col-xs-1 box subject2 parantcen box_offset stat_<%= mandal.stat44%>"><span class="cen"><%= mandal.box44 %></span></div>
+                <div id="<%=mandal.id%>_stat45" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat45%>"><span class="cen"><%= mandal.box45 %></span></div>
+                <div id="<%=mandal.id%>_stat46" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat46%>"><span class="cen"><%= mandal.box46 %></span></div>
+                <div id="<%=mandal.id%>_stat47" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat47%>"><span class="cen"><%= mandal.box47 %></span></div>
+                <div id="<%=mandal.id%>_stat48" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat48%>"><span class="cen"><%= mandal.box48 %></span></div>
+                <div id="<%=mandal.id%>_stat49" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat49%>"><span class="cen"><%= mandal.box49 %></span></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div id="<%=mandal.id%>_stat51" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat51%>"><span class="cen"><%= mandal.box51 %></span></div>
+                <div id="<%=mandal.id%>_stat52" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat54%>"><span class="cen"><%= mandal.box54 %></span></div>
+                <div id="<%=mandal.id%>_stat53" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat53%>"><span class="cen"><%= mandal.box53 %></span></div>
+                <div id="<%=mandal.id%>_stat54" class="col-xs-1 box subject2 parantcen box_offset stat_<%= mandal.stat54%>"><span class="cen"><%= mandal.box54 %></span></div>
+                <div id="<%=mandal.id%>_stat55" class="col-xs-1 box subject1 parantcen stat_<%= mandal.stat55%>"><span class="cen"><%= mandal.box55 %></span></div>
+                <div id="<%=mandal.id%>_stat56" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat56%>"><span class="cen"><%= mandal.box56 %></span></div>
+                <div id="<%=mandal.id%>_stat57" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat57%>"><span class="cen"><%= mandal.box57 %></span></div>
+                <div id="<%=mandal.id%>_stat58" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat56%>"><span class="cen"><%= mandal.box56 %></span></div>
+                <div id="<%=mandal.id%>_stat59" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat59%>"><span class="cen"><%= mandal.box59 %></span></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div id="<%=mandal.id%>_stat61" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat61%>"><span class="cen"><%= mandal.box61 %></span></div>
+                <div id="<%=mandal.id%>_stat62" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat62%>"><span class="cen"><%= mandal.box62 %></span></div>
+                <div id="<%=mandal.id%>_stat63" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat63%>"><span class="cen"><%= mandal.box63 %></span></div>
+                <div id="<%=mandal.id%>_stat64" class="col-xs-1 box subject2 parantcen box_offset stat_<%= mandal.stat64%>"><span class="cen"><%= mandal.box64 %></span></div>
+                <div id="<%=mandal.id%>_stat65" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat65%>"><span class="cen"><%= mandal.box65 %></span></div>
+                <div id="<%=mandal.id%>_stat66" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat66%>"><span class="cen"><%= mandal.box66 %></span></div>
+                <div id="<%=mandal.id%>_stat67" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat67%>"><span class="cen"><%= mandal.box67 %></span></div>
+                <div id="<%=mandal.id%>_stat68" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat68%>"><span class="cen"><%= mandal.box68 %></span></div>
+                <div id="<%=mandal.id%>_stat69" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat69%>"><span class="cen"><%= mandal.box69 %></span></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div id="<%=mandal.id%>_stat71" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat71%>"><span class="cen"><%= mandal.box71 %></span></div>
+                <div id="<%=mandal.id%>_stat72" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat72%>"><span class="cen"><%= mandal.box72 %></span></div>
+                <div id="<%=mandal.id%>_stat73" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat73%>"><span class="cen"><%= mandal.box73 %></span></div>
+                <div id="<%=mandal.id%>_stat74" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat74%>"><span class="cen"><%= mandal.box74 %></span></div>
+                <div id="<%=mandal.id%>_stat75" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat75%>"><span class="cen"><%= mandal.box75 %></span></div>
+                <div id="<%=mandal.id%>_stat76" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat76%>"><span class="cen"><%= mandal.box76 %></span></div>
+                <div id="<%=mandal.id%>_stat77" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat77%>"><span class="cen"><%= mandal.box77 %></span></div>
+                <div id="<%=mandal.id%>_stat78" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat78%>"><span class="cen"><%= mandal.box78 %></span></div>
+                <div id="<%=mandal.id%>_stat79" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat79%>"><span class="cen"><%= mandal.box79 %></span></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div id="<%=mandal.id%>_stat81" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat81%>"><span class="cen"><%= mandal.box81 %></span></div>
+                <div id="<%=mandal.id%>_stat82" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat64%>"><span class="cen"><%= mandal.box64 %></span></div>
+                <div id="<%=mandal.id%>_stat83" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat83%>"><span class="cen"><%= mandal.box83 %></span></div>
+                <div id="<%=mandal.id%>_stat84" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat84%>"><span class="cen"><%= mandal.box84 %></span></div>
+                <div id="<%=mandal.id%>_stat85" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat65%>"><span class="cen"><%= mandal.box65 %></span></div>
+                <div id="<%=mandal.id%>_stat86" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat86%>"><span class="cen"><%= mandal.box86 %></span></div>
+                <div id="<%=mandal.id%>_stat87" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat87%>"><span class="cen"><%= mandal.box87 %></span></div>
+                <div id="<%=mandal.id%>_stat88" class="col-xs-1 box subject2 parantcen stat_<%= mandal.stat66%>"><span class="cen"><%= mandal.box66 %></span></div>
+                <div id="<%=mandal.id%>_stat89" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat89%>"><span class="cen"><%= mandal.box89 %></span></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div id="<%=mandal.id%>_stat91" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat91%>"><span class="cen"><%= mandal.box91 %></span></div>
+                <div id="<%=mandal.id%>_stat92" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat92%>"><span class="cen"><%= mandal.box92 %></span></div>
+                <div id="<%=mandal.id%>_stat93" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat93%>"><span class="cen"><%= mandal.box93 %></span></div>
+                <div id="<%=mandal.id%>_stat94" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat94%>"><span class="cen"><%= mandal.box94 %></span></div>
+                <div id="<%=mandal.id%>_stat95" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat95%>"><span class="cen"><%= mandal.box95 %></span></div>
+                <div id="<%=mandal.id%>_stat96" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat96%>"><span class="cen"><%= mandal.box96 %></span></div>
+                <div id="<%=mandal.id%>_stat97" class="col-xs-1 box subject3 parantcen box_offset stat_<%= mandal.stat97%>"><span class="cen"><%= mandal.box97 %></span></div>
+                <div id="<%=mandal.id%>_stat98" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat98%>"><span class="cen"><%= mandal.box98 %></span></div>
+                <div id="<%=mandal.id%>_stat99" class="col-xs-1 box subject3 parantcen stat_<%= mandal.stat99%>"><span class="cen"><%= mandal.box99 %></span></div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        </div>
+    <% end %>
+  </div>
+
+  </div>
+</div>
+<script>
+    var statarray = ["new","continue","done","remember"]
+    $(".box").click(function(){                     //ex)mandal_id : 7, state 73 click 
+        boxid = this.id                             //ex)7_stat73
+        //중간목표 변경시 발생할 수 있는 에러 잡기
+        idandstat = $(this).attr('id').split( "_" )  //ex)["7","stat73"]
+        mandal_id = idandstat[0]                     //ex)"7"
+        statename = idandstat[1]                     //ex)"stat73"
+        stat_str = $(this).attr('class').replace(/.*stat_/g,'')    //new,continue,done or remember    
+        idx = $.inArray(stat_str,statarray)         //state_str(new,continue...따위)의 단어가 statarray배열내 몇번째 index인지 반환
+        if (idx == 3)
+            stat_str = statarray[0];
+        else    
+            stat_str = statarray[ idx + 1 ]
+        
+        //선택된 box가 중간목표인지 확인하고 중간목표일 경우, 선택되지 않은 중간목표의 id값을 얻어냅니다.
+        var mid_idx = middleGoal(boxid.replace(/.*stat/g,''))
+        
+        //선택된 목표들의 색상(상태)를 변경합니다.
+        //"#"+"7"+"_stat"+"73" 아이디를 선택 후 class이름을 바꿔버립니다.
+        $("#"+idandstat[0] + "_stat" + mid_idx[0]).removeClass('stat_'+statarray[idx]).addClass('stat_' + stat_str)
+        if (mid_idx[1] != null)
+            $("#"+idandstat[0] + "_stat" + mid_idx[1]).removeClass('stat_'+statarray[idx]).addClass('stat_' + stat_str)
+        
+        $.ajax({
+         method: "get",
+         url: "/home/mylist/update_stat",
+         data: { mandal_id: parseInt(idandstat[0]),stat: statename ,statstr: stat_str },
+         success: function(){
+            //선택된 목표들의 색상(상태)를 변경합니다.
+            //"#"+"7"+"_stat"+"73"
+            $("#"+idandstat[0] + "_stat" + mid_idx[0]).removeClass('stat_'+statarray[idx]).addClass('stat_' + stat_str)
+            //22, 25, 28같은 중간 목표들이 클릭된 경우, 연관된 중간목표도 변경.
+            if (mid_idx[1] != null)
+                $("#"+idandstat[0] + "_stat" + mid_idx[1]).removeClass('stat_'+statarray[idx]).addClass('stat_' + stat_str)
+            
+         },
+          error:function(request,status,error){
+             alert("죄송합니다. 목표 상태 변경 중 문제가 발생했습니다. 다시 접속해 주시기를 부탁드립니다.");
+          }
+        })
+    })
+    
+    var middleGoal = function(index){
+        switch(index) {
+        case "22":
+        case "44":
+            return ["22","44"]
+        case "25":
+        case "45":
+            return ["25","45"]
+        case "28":
+        case "46":
+            return ["28","46"]
+        case "52":
+        case "54":
+            return ["52","54"]
+        case "58":
+        case "56":
+            return ["58","56"]
+        case "82":
+        case "64":
+            return ["82","64"]
+        case "85":
+        case "65":
+            return ["85","65"]
+        case "88":
+        case "66":
+            return ["88","66"]
+        default:
+            return [index]
+        }
+    }
+</script>

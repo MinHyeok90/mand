@@ -197,7 +197,7 @@ class HomeController < ApplicationController
     newmandal.stat99 = "new"
     
     if newmandal.save
-    	redirect_to "/home/mylist"
+    	redirect_to "/home/mylist_simple"
     else
     	render :text => newmandal.errors.messages[:title].first
     end
@@ -206,6 +206,9 @@ class HomeController < ApplicationController
   def update
     @status = "update"
     @mandal=Mandalart.find(params[:mandal_id])
+    unless @mandal.user == current_user
+      redirect_to "/home/mylist_simple"
+    end
   end
 
   def realupdate
@@ -316,7 +319,7 @@ class HomeController < ApplicationController
     if @mandal.user == current_user
       @mandal.destroy
     end
-    redirect_to "/home/mylist"
+    redirect_to "/home/mylist_simple"
   end
   
   def mylist
@@ -330,7 +333,6 @@ class HomeController < ApplicationController
   
   def mylist_simple
     @status = "mylist"
-    
     if user_signed_in?
       @mylist=Mandalart.where("user_id = ?", current_user).reverse
       @selected_mandal = @mylist.first.id.to_i  #우선 첫번째 만다라트로 설정해둠.
@@ -528,7 +530,7 @@ class HomeController < ApplicationController
       newmandal.shared = true  #공유할지 안할지.
       
       newmandal.save
-      redirect_to "/home/mylist"
+      redirect_to "/home/mylist_simple"
     else
       redirect_to "/users/sign_in"
     end
@@ -540,13 +542,13 @@ class HomeController < ApplicationController
     # 관리자 권한 획득방법....을 주면 안되지. 이건 콘솔에서만 되도록 해야지.
     
     if current_user.id != 1       #관리자는 1번 유저.
-      redirect_to '/home/mylist'
+      redirect_to '/home/mylist_simple'
     end
   end
   
   def manager_uploading_json
     if current_user.id != 1       #관리자는 1번 유저.
-      redirect_to '/home/mylist'
+      redirect_to '/home/mylist_simple'
     end
     # file = File.new("mandal.json", "w") 
     @json = params[:jsonfile]
@@ -558,7 +560,7 @@ class HomeController < ApplicationController
   
   def manager_write_json_backup
     if current_user.id != 1       #관리자는 1번 유저.
-      redirect_to '/home/mylist'
+      redirect_to '/home/mylist_simple'
     end
     every_mandal = Mandalart.all
     k = Hash.new
@@ -725,7 +727,7 @@ class HomeController < ApplicationController
   
   def manager_mandaldown
     if current_user.id != 1       #관리자는 1번 유저.
-      redirect_to '/home/mylist'
+      redirect_to '/home/mylist_simple'
     else
       send_file("mandal.json")
     end
@@ -733,7 +735,7 @@ class HomeController < ApplicationController
   
   def manager_read_json_backup
     if current_user.id != 1       #관리자는 1번 유저.
-      redirect_to '/home/mylist'
+      redirect_to '/home/mylist_simple'
     end
     
     file = open("mandal.json")  #backup한 파일을 불러 mandalart를 복구함. 단, 유저는 복구하지 않음.
@@ -899,4 +901,18 @@ class HomeController < ApplicationController
     end
   end
   
+  def manager_view  #매니저가 모든 만다라트를 볼 수 있는 공간. 이상 게시물 삭제용
+    if current_user.id != 1       #관리자는 1번 유저.
+      redirect_to '/home/mylist_simple'
+    end
+    @status = "mylist"
+    @flag = "first"
+    @mylist=Mandalart.all.reverse
+  end
+  
+  def manager_mandal_remove
+    @mandal=Mandalart.find(params[:mandal_id])
+      @mandal.destroy
+    redirect_to "/home/manager_view"
+  end
 end

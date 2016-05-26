@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   get 'home/read_json_backup' => 'home#manager_read_json_backup'
   get 'home/manager_mandaldown'
   
+  get 'home/manager_view'
+  get 'home/manager_mandal_remove/:mandal_id' => 'home#manager_mandal_remove'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
