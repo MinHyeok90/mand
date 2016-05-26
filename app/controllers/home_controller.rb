@@ -317,6 +317,9 @@ class HomeController < ApplicationController
   def remove
     @mandal=Mandalart.find(params[:mandal_id])
     if @mandal.user == current_user
+      @mandal.expireds.each do |ex|
+        ex.destroy
+      end
       @mandal.destroy
     end
     redirect_to "/home/mylist_simple"
@@ -342,6 +345,388 @@ class HomeController < ApplicationController
     else
       redirect_to "/users/sign_in"
     end
+  end
+  
+  def expired
+    @mandal=Mandalart.find(params[:mandal_id])
+    if @mandal.user == current_user
+      #1=====================================================================================
+      if @mandal.stat11 == "done" && !@mandal.box11.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box11) 
+        @mandal. box11=""
+      end
+      if @mandal.stat12 == "done" && !@mandal.box12.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box12) 
+        @mandal. box12=""
+      end
+      if @mandal.stat13 == "done" && !@mandal.box13.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box13) 
+        @mandal. box13=""
+      end
+      if @mandal.stat14 == "done" && !@mandal.box14.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box14) 
+        @mandal. box14=""
+      end
+      if @mandal.stat15 == "done" && !@mandal.box15.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box15) 
+        @mandal. box15=""
+      end
+      if @mandal.stat16 == "done" && !@mandal.box16.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box16) 
+        @mandal. box16=""
+      end
+      if @mandal.stat17 == "done" && !@mandal.box17.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box17) 
+        @mandal. box17=""
+      end
+      if @mandal.stat18 == "done" && !@mandal.box18.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box18) 
+        @mandal. box18=""
+      end
+      if @mandal.stat19 == "done" && !@mandal.box19.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box19) 
+        @mandal. box19=""
+      end
+      #2=====================================================================================
+      if @mandal.stat21 == "done" && !@mandal.box21.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box21) 
+        @mandal. box21=""
+      end
+      if @mandal.stat23 == "done" && !@mandal.box23.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box23) 
+        @mandal. box23=""
+      end
+      if @mandal.stat24 == "done" && !@mandal.box24.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box24) 
+        @mandal. box24=""
+      end
+      if @mandal.stat26 == "done" && !@mandal.box26.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box26) 
+        @mandal. box26=""
+      end
+      if @mandal.stat27 == "done" && !@mandal.box27.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box27) 
+        @mandal. box27=""
+      end
+      if @mandal.stat29 == "done" && !@mandal.box29.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box29) 
+        @mandal. box29=""
+      end
+      #3=====================================================================================
+      if @mandal.stat31 == "done" && !@mandal.box11.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box31) 
+        @mandal. box31=""
+      end
+      if @mandal.stat32 == "done" && !@mandal.box12.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box32) 
+        @mandal. box32=""
+      end
+      if @mandal.stat33 == "done" && !@mandal.box13.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box33) 
+        @mandal. box33=""
+      end
+      if @mandal.stat34 == "done" && !@mandal.box14.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box34) 
+        @mandal. box34=""
+      end
+      if @mandal.stat35 == "done" && !@mandal.box15.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box35) 
+        @mandal. box35=""
+      end
+      if @mandal.stat36 == "done" && !@mandal.box16.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box36) 
+        @mandal. box36=""
+      end
+      if @mandal.stat37 == "done" && !@mandal.box17.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box37) 
+        @mandal. box37=""
+      end
+      if @mandal.stat38 == "done" && !@mandal.box18.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box38) 
+        @mandal. box38=""
+      end
+      if @mandal.stat39 == "done" && !@mandal.box19.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box39) 
+        @mandal. box39=""
+      end
+
+      #4=====================================================================================
+      if @mandal.stat41 == "done" && !@mandal.box41.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box41) 
+        @mandal. box41=""
+      end
+      if @mandal.stat42 == "done" && !@mandal.box42.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box42) 
+        @mandal. box42=""
+      end
+      if @mandal.stat43 == "done" && !@mandal.box43.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box43) 
+        @mandal. box43=""
+      end
+      if @mandal.stat44 == "done" && !@mandal.box44.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 2, content: @mandal.box44) 
+        @mandal. box44=""
+      end
+      if @mandal.stat45 == "done" && !@mandal.box45.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 2, content: @mandal.box45) 
+        @mandal. box45=""
+      end
+      if @mandal.stat46 == "done" && !@mandal.box46.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 2, content: @mandal.box46) 
+        @mandal. box46=""
+      end
+      if @mandal.stat47 == "done" && !@mandal.box47.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box47) 
+        @mandal. box47=""
+      end
+      if @mandal.stat48 == "done" && !@mandal.box48.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box48) 
+        @mandal. box48=""
+      end
+      if @mandal.stat49 == "done" && !@mandal.box49.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box49) 
+        @mandal. box49=""
+      end
+      #5=====================================================================================
+      if @mandal.stat51 == "done" && !@mandal.box51.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box51) 
+        @mandal. box51=""
+      end
+      if @mandal.stat53 == "done" && !@mandal.box53.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box53) 
+        @mandal. box53=""
+      end
+      if @mandal.stat54 == "done" && !@mandal.box54.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 2, content: @mandal.box54) 
+        @mandal. box54=""
+      end
+      if @mandal.stat55 == "done" && !@mandal.box55.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 1, content: @mandal.box55) 
+        @mandal. box55=""
+      end
+      if @mandal.stat56 == "done" && !@mandal.box56.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 2, content: @mandal.box56) 
+        @mandal. box56=""
+      end
+      if @mandal.stat57 == "done" && !@mandal.box57.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box57) 
+        @mandal. box57=""
+      end
+      if @mandal.stat59 == "done" && !@mandal.box59.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box59) 
+        @mandal. box59=""
+      end
+      #6=====================================================================================
+      if @mandal.stat61 == "done" && !@mandal.box61.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box61) 
+        @mandal. box61=""
+      end
+      if @mandal.stat62 == "done" && !@mandal.box62.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box62) 
+        @mandal. box62=""
+      end
+      if @mandal.stat63 == "done" && !@mandal.box63.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box63) 
+        @mandal. box63=""
+      end
+      if @mandal.stat64 == "done" && !@mandal.box64.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 2, content: @mandal.box64) 
+        @mandal. box64=""
+      end
+      if @mandal.stat65 == "done" && !@mandal.box65.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 2, content: @mandal.box65) 
+        @mandal. box65=""
+      end
+      if @mandal.stat66 == "done" && !@mandal.box66.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 2, content: @mandal.box66) 
+        @mandal. box66=""
+      end
+      if @mandal.stat67 == "done" && !@mandal.box67.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box67) 
+        @mandal. box67=""
+      end
+      if @mandal.stat68 == "done" && !@mandal.box68.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box68) 
+        @mandal. box68=""
+      end
+      if @mandal.stat69 == "done" && !@mandal.box69.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box69) 
+        @mandal. box69=""
+      end
+
+      #7=====================================================================================
+      if @mandal.stat71 == "done" && !@mandal.box71.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box71) 
+        @mandal. box71=""
+      end
+      if @mandal.stat72 == "done" && !@mandal.box72.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box72) 
+        @mandal. box72=""
+      end
+      if @mandal.stat73 == "done" && !@mandal.box73.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box73) 
+        @mandal. box73=""
+      end
+      if @mandal.stat74 == "done" && !@mandal.box74.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box74) 
+        @mandal. box74=""
+      end
+      if @mandal.stat75 == "done" && !@mandal.box75.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box75) 
+        @mandal. box75=""
+      end
+      if @mandal.stat76 == "done" && !@mandal.box76.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box76) 
+        @mandal. box76=""
+      end
+      if @mandal.stat77 == "done" && !@mandal.box77.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box77) 
+        @mandal. box77=""
+      end
+      if @mandal.stat78 == "done" && !@mandal.box78.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box78) 
+        @mandal. box78=""
+      end
+      if @mandal.stat79 == "done" && !@mandal.box79.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box79) 
+        @mandal. box79=""
+      end
+      #8=====================================================================================
+      if @mandal.stat81 == "done" && !@mandal.box81.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box81) 
+        @mandal. box81=""
+      end
+      if @mandal.stat83 == "done" && !@mandal.box83.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box83) 
+        @mandal. box83=""
+      end
+      if @mandal.stat84 == "done" && !@mandal.box84.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box84) 
+        @mandal. box84=""
+      end
+      if @mandal.stat86 == "done" && !@mandal.box86.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box86) 
+        @mandal. box86=""
+      end
+      if @mandal.stat87 == "done" && !@mandal.box87.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box87) 
+        @mandal. box87=""
+      end
+      if @mandal.stat89 == "done" && !@mandal.box89.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box89) 
+        @mandal. box89=""
+      end
+      #9=====================================================================================
+      if @mandal.stat91 == "done" && !@mandal.box91.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box91) 
+        @mandal. box91=""
+      end
+      if @mandal.stat92 == "done" && !@mandal.box92.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box92) 
+        @mandal. box92=""
+      end
+      if @mandal.stat93 == "done" && !@mandal.box93.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box93) 
+        @mandal. box93=""
+      end
+      if @mandal.stat94 == "done" && !@mandal.box94.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box94) 
+        @mandal. box94=""
+      end
+      if @mandal.stat95 == "done" && !@mandal.box95.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box95) 
+        @mandal. box95=""
+      end
+      if @mandal.stat96 == "done" && !@mandal.box96.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box96) 
+        @mandal. box96=""
+      if @mandal.stat97 == "done" && !@mandal.box97.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box97) 
+        @mandal. box97=""
+      end
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box98) 
+        @mandal. box98=""
+      end
+      if @mandal.stat99 == "done" && !@mandal.box99.empty?
+        @mandal. box99=""
+      end
+      
+      if @mandal.box11.empty? then @mandal.stat11 = "new" end
+      if @mandal.box12.empty? then @mandal.stat12 = "new" end
+      if @mandal.box13.empty? then @mandal.stat13 = "new" end
+      if @mandal.box14.empty? then @mandal.stat14 = "new" end
+      if @mandal.box15.empty? then @mandal.stat15 = "new" end
+      if @mandal.box16.empty? then @mandal.stat16 = "new" end
+      if @mandal.box17.empty? then @mandal.stat17 = "new" end
+      if @mandal.box18.empty? then @mandal.stat18 = "new" end
+      if @mandal.box19.empty? then @mandal.stat19 = "new" end
+      if @mandal.box21.empty? then @mandal.stat21 = "new" end
+      if @mandal.box23.empty? then @mandal.stat23 = "new" end
+      if @mandal.box24.empty? then @mandal.stat24 = "new" end
+      if @mandal.box26.empty? then @mandal.stat26 = "new" end
+      if @mandal.box27.empty? then @mandal.stat27 = "new" end
+      if @mandal.box29.empty? then @mandal.stat29 = "new" end
+      if @mandal.box31.empty? then @mandal.stat31 = "new" end
+      if @mandal.box32.empty? then @mandal.stat32 = "new" end
+      if @mandal.box33.empty? then @mandal.stat33 = "new" end
+      if @mandal.box34.empty? then @mandal.stat34 = "new" end
+      if @mandal.box35.empty? then @mandal.stat35 = "new" end
+      if @mandal.box36.empty? then @mandal.stat36 = "new" end
+      if @mandal.box37.empty? then @mandal.stat37 = "new" end
+      if @mandal.box38.empty? then @mandal.stat38 = "new" end
+      if @mandal.box39.empty? then @mandal.stat39 = "new" end
+      if @mandal.box41.empty? then @mandal.stat41 = "new" end
+      if @mandal.box42.empty? then @mandal.stat42 = "new" end
+      if @mandal.box43.empty? then @mandal.stat43 = "new" end
+      if @mandal.box44.empty? then @mandal.stat44 = "new" end
+      if @mandal.box45.empty? then @mandal.stat45 = "new" end
+      if @mandal.box46.empty? then @mandal.stat46 = "new" end
+      if @mandal.box47.empty? then @mandal.stat47 = "new" end
+      if @mandal.box48.empty? then @mandal.stat48 = "new" end
+      if @mandal.box49.empty? then @mandal.stat49 = "new" end
+      if @mandal.box51.empty? then @mandal.stat51 = "new" end
+      if @mandal.box53.empty? then @mandal.stat53 = "new" end
+      if @mandal.box54.empty? then @mandal.stat54 = "new" end
+      if @mandal.box55.empty? then @mandal.stat55 = "new" end
+      if @mandal.box56.empty? then @mandal.stat56 = "new" end
+      if @mandal.box57.empty? then @mandal.stat57 = "new" end
+      if @mandal.box59.empty? then @mandal.stat59 = "new" end
+      if @mandal.box61.empty? then @mandal.stat61 = "new" end
+      if @mandal.box62.empty? then @mandal.stat62 = "new" end
+      if @mandal.box63.empty? then @mandal.stat63 = "new" end
+      if @mandal.box64.empty? then @mandal.stat64 = "new" end
+      if @mandal.box65.empty? then @mandal.stat65 = "new" end
+      if @mandal.box66.empty? then @mandal.stat66 = "new" end
+      if @mandal.box67.empty? then @mandal.stat67 = "new" end
+      if @mandal.box68.empty? then @mandal.stat68 = "new" end
+      if @mandal.box69.empty? then @mandal.stat69 = "new" end
+      if @mandal.box71.empty? then @mandal.stat71 = "new" end
+      if @mandal.box72.empty? then @mandal.stat72 = "new" end
+      if @mandal.box73.empty? then @mandal.stat73 = "new" end
+      if @mandal.box74.empty? then @mandal.stat74 = "new" end
+      if @mandal.box75.empty? then @mandal.stat75 = "new" end
+      if @mandal.box76.empty? then @mandal.stat76 = "new" end
+      if @mandal.box77.empty? then @mandal.stat77 = "new" end
+      if @mandal.box78.empty? then @mandal.stat78 = "new" end
+      if @mandal.box79.empty? then @mandal.stat79 = "new" end
+      if @mandal.box81.empty? then @mandal.stat81 = "new" end
+      if @mandal.box83.empty? then @mandal.stat83 = "new" end
+      if @mandal.box84.empty? then @mandal.stat84 = "new" end
+      if @mandal.box86.empty? then @mandal.stat86 = "new" end
+      if @mandal.box87.empty? then @mandal.stat87 = "new" end
+      if @mandal.box89.empty? then @mandal.stat89 = "new" end
+      if @mandal.box91.empty? then @mandal.stat91 = "new" end
+      if @mandal.box92.empty? then @mandal.stat92 = "new" end
+      if @mandal.box93.empty? then @mandal.stat93 = "new" end
+      if @mandal.box94.empty? then @mandal.stat94 = "new" end
+      if @mandal.box95.empty? then @mandal.stat95 = "new" end
+      if @mandal.box96.empty? then @mandal.stat96 = "new" end
+      if @mandal.box97.empty? then @mandal.stat97 = "new" end
+      if @mandal.box98.empty? then @mandal.stat98 = "new" end
+      if @mandal.box99.empty? then @mandal.stat99 = "new" end
+      @mandal.save
+    end
+    redirect_to "/home/mylist_simple/" << params[:mandal_id]
   end
   
   def suggestion
@@ -723,6 +1108,7 @@ class HomeController < ApplicationController
     aFile = File.new("mandal.json", "w")  #mandal.json으로 mandalart의 모든 내용을 백업함.
     aFile.syswrite(k.to_json)
     aFile.close
+    
   end
   
   def manager_mandaldown

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160521151226) do
 
   create_table "expireds", force: :cascade do |t|
     t.integer  "mandalart_id"
+    t.integer  "level"
     t.string   "content"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
