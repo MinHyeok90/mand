@@ -8,13 +8,16 @@
       <p>주의! rake db:drop하면 로그인도 못함. 순서 잘 숙지하고 진행</p>
       <ol>
         <li>
+          <p>저번 json다운로드 <a href="/home/manager_mandaldown/mandal"> mandal </a>, <a href="/home/manager_mandaldown/suggestion"> suggestion </a>, <a href="/home/manager_mandaldown/expired"> expired </a> </p>
+        </li>
+        <li>
           <p><a href="/home/write_json_backup">json으로 저장하기</a> or <a href="/home/upload_json">json 업로드하기</a></p>
         </li>
         <li>
-          <p>rake db:drop</p>
+          <p>모델이 변경된 경우 : rake db:drop & rake db:migrate & rake db:seed</p>
         </li>
         <li>
-          <p><b>rake db:reset</b> & <b>rake db:migrate</b></p>
+          <p>모델변경 안한경우 : rake db:reset & rake db:migrate</p>
         </li>
         <li>
           <p><b>관리자 로그인(seed파일확인)</b></p>

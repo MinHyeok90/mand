@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get 'home/json_upload' => 'home#manager_json_upload'                #만다라트를 json형태로 저장. user_id를 저장하므로 불완전
   get 'home/write_json_backup' => 'home#manager_write_json_backup'    #만다라트를 json형태로 저장. user_id를 저장하므로 불완전
   get 'home/read_json_backup' => 'home#manager_read_json_backup'      #json -> 만다라트로 복원. 만다라트 모델'만'복원
-  get 'home/manager_mandaldown'                                       #json 다운로드.
+  get 'home/manager_mandaldown/:mode'   =>  'home#manager_mandaldown'                                  #json 다운로드.
   
   #관리기능 : 만다라트 보기 삭제
   get 'home/manager_view'

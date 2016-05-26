@@ -1109,13 +1109,50 @@ class HomeController < ApplicationController
     aFile.syswrite(k.to_json)
     aFile.close
     
+    #expired 백업
+    expired_allh = Hash.new
+    every_expired = Expired.all
+    every_expired.each do |ex|
+      expired_one = Hash.new
+      expired_one["id"] = ex.id;
+      expired_one["mandalart_id"] = ex.mandalart_id;
+      expired_one["level"] = ex.level;
+      expired_one["content"] = ex.content;
+      expired_allh["expired" << ex.id.to_s] = expired_one;
+    end
+    aFile = File.new("expired.json", "w")  #mandal.json으로 mandalart의 모든 내용을 백업함.
+    aFile.syswrite(expired_allh.to_json)
+    aFile.close
+    
+    #suggest 백업
+    suggestion_allh = Hash.new
+    every_suggestions = Sugestion.all
+    every_suggestions.each do |sug|
+      suggestion_one = Hash.new
+      suggestion_one["id"] = sug.id;
+      suggestion_one["user_id"] = sug.user_id;
+      suggestion_one["content"] = sug.content;
+      suggestion_allh["suggestion" << sug.id.to_s] = suggestion_one;
+    end
+    aFile = File.new("suggestion.json", "w")  #mandal.json으로 mandalart의 모든 내용을 백업함.
+    aFile.syswrite(suggestion_allh.to_json)
+    aFile.close
+    
   end
   
   def manager_mandaldown
     if current_user.id != 1       #관리자는 1번 유저.
       redirect_to '/home/mylist_simple'
     else
-      send_file("mandal.json")
+      case params[:mode]
+      when "mandal"
+        send_file("mandal.json")
+      when "suggestion"
+        send_file("suggestion.json")
+      when "expired"
+        send_file("expired.json")
+      else
+      end
     end
   end
   
@@ -1123,7 +1160,7 @@ class HomeController < ApplicationController
     if current_user.id != 1       #관리자는 1번 유저.
       redirect_to '/home/mylist_simple'
     end
-    
+    #mandal 복원
     file = open("mandal.json")  #backup한 파일을 불러 mandalart를 복구함. 단, 유저는 복구하지 않음.
     json = file.read
     parsed = JSON.parse(json)
@@ -1285,6 +1322,36 @@ class HomeController < ApplicationController
       newmandal.updated_at = parsed[i]["updated_at"]
       newmandal.save
     end
+      
+    # expired 복원
+    file = open("expired.json")  #backup한 파일을 불러 mandalart를 복구함. 단, 유저는 복구하지 않음.
+    json = file.read
+    parsed = JSON.parse(json)
+    parsed.keys.each do |i|
+      ex = Expired.new
+      ex.id = parsed[i]["id"]    # 주의! 같은 id가 있으면 안됨.
+      ex.mandalart_id = parsed[i]["mandalart_id"]
+      ex.level = parsed[i]["level"]
+      ex.content = parsed[i]["content"]
+      ex.created_at = parsed[i]["created_at"]
+      ex.updated_at = parsed[i]["updated_at"]
+      ex.save
+    end
+    
+    # 건의사항 복원
+    file = open("suggestion.json")  #backup한 파일을 불러 mandalart를 복구함. 단, 유저는 복구하지 않음.
+    json = file.read
+    parsed = JSON.parse(json)
+    parsed.keys.each do |i|
+      su = Sugestion.new
+      su.id = parsed[i]["id"]    # 주의! 같은 id가 있으면 안됨.
+      su.user_id = parsed[i]["user_id"]
+      su.content = parsed[i]["content"]
+      su.created_at = parsed[i]["created_at"]
+      su.updated_at = parsed[i]["updated_at"]
+      su.save
+    end
+    
   end
   
   def manager_view  #매니저가 모든 만다라트를 볼 수 있는 공간. 이상 게시물 삭제용
