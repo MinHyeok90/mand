@@ -413,39 +413,39 @@ class HomeController < ApplicationController
         @mandal. box29=""
       end
       #3=====================================================================================
-      if @mandal.stat31 == "done" && !@mandal.box11.empty?
+      if @mandal.stat31 == "done" && !@mandal.box31.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box31) 
         @mandal. box31=""
       end
-      if @mandal.stat32 == "done" && !@mandal.box12.empty?
+      if @mandal.stat32 == "done" && !@mandal.box32.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box32) 
         @mandal. box32=""
       end
-      if @mandal.stat33 == "done" && !@mandal.box13.empty?
+      if @mandal.stat33 == "done" && !@mandal.box33.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box33) 
         @mandal. box33=""
       end
-      if @mandal.stat34 == "done" && !@mandal.box14.empty?
+      if @mandal.stat34 == "done" && !@mandal.box34.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box34) 
         @mandal. box34=""
       end
-      if @mandal.stat35 == "done" && !@mandal.box15.empty?
+      if @mandal.stat35 == "done" && !@mandal.box35.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box35) 
         @mandal. box35=""
       end
-      if @mandal.stat36 == "done" && !@mandal.box16.empty?
+      if @mandal.stat36 == "done" && !@mandal.box36.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box36) 
         @mandal. box36=""
       end
-      if @mandal.stat37 == "done" && !@mandal.box17.empty?
+      if @mandal.stat37 == "done" && !@mandal.box37.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box37) 
         @mandal. box37=""
       end
-      if @mandal.stat38 == "done" && !@mandal.box18.empty?
+      if @mandal.stat38 == "done" && !@mandal.box38.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box38) 
         @mandal. box38=""
       end
-      if @mandal.stat39 == "done" && !@mandal.box19.empty?
+      if @mandal.stat39 == "done" && !@mandal.box39.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box39) 
         @mandal. box39=""
       end
@@ -502,7 +502,7 @@ class HomeController < ApplicationController
       end
       if @mandal.stat55 == "done" && !@mandal.box55.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 1, content: @mandal.box55) 
-        @mandal. box55=""
+         @mandal. box55="수정하기 -> 다음목표 작성하기" #이것은 비어버리면 안되도록 모델이 설계되었습니다.
       end
       if @mandal.stat56 == "done" && !@mandal.box56.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 2, content: @mandal.box56) 
@@ -640,14 +640,17 @@ class HomeController < ApplicationController
       if @mandal.stat96 == "done" && !@mandal.box96.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box96) 
         @mandal. box96=""
+      end
       if @mandal.stat97 == "done" && !@mandal.box97.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box97) 
         @mandal. box97=""
       end
+      if @mandal.stat98 == "done" && !@mandal.box98.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box98) 
         @mandal. box98=""
       end
       if @mandal.stat99 == "done" && !@mandal.box99.empty?
+        Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box99) 
         @mandal. box99=""
       end
       
@@ -687,7 +690,7 @@ class HomeController < ApplicationController
       if @mandal.box51.empty? then @mandal.stat51 = "new" end
       if @mandal.box53.empty? then @mandal.stat53 = "new" end
       if @mandal.box54.empty? then @mandal.stat54 = "new" end
-      if @mandal.box55.empty? then @mandal.stat55 = "new" end
+      if @mandal.stat55 == "done" then @mandal.stat55 = "new" end   #55번은 비어버리면 안됩니다.
       if @mandal.box56.empty? then @mandal.stat56 = "new" end
       if @mandal.box57.empty? then @mandal.stat57 = "new" end
       if @mandal.box59.empty? then @mandal.stat59 = "new" end
