@@ -86,6 +86,12 @@
           <% else %>
             <li><a href="/users/sign_in">로그인하기</a></li>
           <% end %>
+          <% if user_signed_in? %>
+            <li class=""><a href="#"><%=current_user.name%></a></li>
+            <li class=""><%= link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "정말 로그아웃 하시겠습니까?" }%></li>
+          <% else %>
+            <li class=""><%= link_to "Facebook 로그인", user_omniauth_authorize_path(:facebook) %></li>
+          <% end %>
         </ul>
       </div>
     </div>
