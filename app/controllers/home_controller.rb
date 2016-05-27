@@ -2,13 +2,13 @@ class HomeController < ApplicationController
   before_action :require_login, except: [:index, :index_table] 
   
   def test
-    @status = "mylist"
-    @flag = "first"
-    if user_signed_in?
-      @mylist=Mandalart.where("user_id = ?", current_user).reverse
-    else
-      redirect_to "/users/sign_in"
-    end
+    # @status = "mylist"
+    # @flag = "first"
+    # if user_signed_in?
+    #   @mylist=Mandalart.where("email = ?", current_user.email).reverse
+    # else
+    #   redirect_to "/users/sign_in"
+    # end
   end
   
   def index
@@ -32,6 +32,7 @@ class HomeController < ApplicationController
   def write
     newmandal = Mandalart.new
     newmandal.user = current_user
+    newmandal.email = current_user.email
     newmandal.shared = params[:shared]  #공유할지 안할지.
 
     if params[:title].empty?            #제목칸을 적지 않았다면 => 중심 목표를 title로 작성.
@@ -207,14 +208,14 @@ class HomeController < ApplicationController
   def update
     @status = "update"
     @mandal=Mandalart.find(params[:mandal_id])
-    unless @mandal.user == current_user
+    unless @mandal.user.email == current_user.email
       redirect_to "/home/mylist_simple"
     end
   end
 
   def realupdate
     update_mandal = Mandalart.find(params[:mandal_id])
-    if update_mandal.user == current_user
+    if update_mandal.user.email == current_user.email
       update_mandal.shared = params[:shared]
       
       if params[:title].empty?            #제목칸을 적지 않았다면 => 중심 목표를 title로 작성.
@@ -317,7 +318,7 @@ class HomeController < ApplicationController
   
   def remove
     @mandal=Mandalart.find(params[:mandal_id])
-    if @mandal.user == current_user
+    if @mandal.user.email == current_user.email
       @mandal.expireds.each do |ex|
         ex.destroy
       end
@@ -329,7 +330,7 @@ class HomeController < ApplicationController
   def mylist
     @status = "mylist"
     if user_signed_in?
-      @mylist=Mandalart.where("user_id = ?", current_user).reverse
+      @mylist=Mandalart.where("email = ?", current_user.email).reverse
     else
       redirect_to "/users/sign_in"
     end
@@ -338,8 +339,10 @@ class HomeController < ApplicationController
   def mylist_simple
     @status = "mylist"
     if user_signed_in?
-      @mylist=Mandalart.where("user_id = ?", current_user).reverse
-      @selected_mandal = @mylist.first.id.to_i  #우선 첫번째 만다라트로 설정해둠.
+      @mylist=Mandalart.where("email = ?", current_user.email).reverse
+      if @mylist
+        @selected_mandal = @mylist.first.id.to_i  #우선 첫번째 만다라트로 설정해둠.
+      end
       unless  params[:mandal_id].nil?           #하지만 선택된 만다라트가 있다면
         @selected_mandal = params[:mandal_id].to_i #해당 만다라트 id로 초기화 -> 뷰에서 해당 만다라트를 active할것임. 만일 선택되지 않았다면 첫번째 만다라트가 출력됨.
       end
@@ -350,7 +353,7 @@ class HomeController < ApplicationController
   
   def expired
     @mandal=Mandalart.find(params[:mandal_id])
-    if @mandal.user == current_user
+    if @mandal.user.email == current_user.email
       #1=====================================================================================
       if @mandal.stat11 == "done" && !@mandal.box11.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box11) 
@@ -741,6 +744,7 @@ class HomeController < ApplicationController
   def suggest
     newsugest = Sugestion.new
     newsugest.user = current_user
+    newsugest.user.email = current_user.email
     newsugest.content = params[:content]
     if newsugest.save
     	redirect_to "/home/suggestion"
@@ -751,7 +755,7 @@ class HomeController < ApplicationController
   
   def removesuggest
     suggestion = Sugestion.find(params[:sug_id])
-    if suggestion.user == current_user
+    if suggestion.user.email == current_user.email
       suggestion.destroy
     end
     redirect_to "/home/suggestion"
@@ -916,6 +920,7 @@ class HomeController < ApplicationController
       exist_modal = Mandalart.find(params[:mandal_id])
       newmandal = exist_modal.dup
       newmandal.user = current_user
+      newmandal.user.email = current_user.email
       newmandal.shared = true  #공유할지 안할지.
       
       newmandal.save
@@ -930,13 +935,13 @@ class HomeController < ApplicationController
     # 유저 속성에 권한 넣거나, 관리자 테이블.
     # 관리자 권한 획득방법....을 주면 안되지. 이건 콘솔에서만 되도록 해야지.
     
-    if current_user.id != 1       #관리자는 1번 유저.
+    if current_user.email != "ekerll@nate.com"       #
       redirect_to '/home/mylist_simple'
     end
   end
   
   def manager_uploading_json
-    if current_user.id != 1       #관리자는 1번 유저.
+    if current_user.email != "ekerll@nate.com"       #
       redirect_to '/home/mylist_simple'
     end
     # file = File.new("mandal.json", "w") 
@@ -948,7 +953,7 @@ class HomeController < ApplicationController
   end
   
   def manager_write_json_backup
-    if current_user.id != 1       #관리자는 1번 유저.
+    if current_user.email != "ekerll@nate.com"       #
       redirect_to '/home/mylist_simple'
     end
     every_mandal = Mandalart.all
@@ -958,6 +963,7 @@ class HomeController < ApplicationController
       j["id"] = mandal.id;
       j["title"] = mandal.title;
       j["user_id"] = mandal.user_id;
+      j["email"] = mandal.email;
       j["shared"] = mandal.shared;
       j["box11"] = mandal.box11;
       j["box12"] = mandal.box12;
@@ -1135,6 +1141,7 @@ class HomeController < ApplicationController
       suggestion_one = Hash.new
       suggestion_one["id"] = sug.id;
       suggestion_one["user_id"] = sug.user_id;
+      suggestion_one["email"] = sug.email;
       suggestion_one["content"] = sug.content;
       suggestion_allh["suggestion" << sug.id.to_s] = suggestion_one;
     end
@@ -1145,7 +1152,7 @@ class HomeController < ApplicationController
   end
   
   def manager_mandaldown
-    if current_user.id != 1       #관리자는 1번 유저.
+    if current_user.email != "ekerll@nate.com"       #관리자는 나.
       redirect_to '/home/mylist_simple'
     else
       case params[:mode]
@@ -1161,7 +1168,7 @@ class HomeController < ApplicationController
   end
   
   def manager_read_json_backup
-    if current_user.id != 1       #관리자는 1번 유저.
+    if current_user.id != 1       #
       redirect_to '/home/mylist_simple'
     end
     #mandal 복원
@@ -1173,6 +1180,7 @@ class HomeController < ApplicationController
       newmandal.id = parsed[i]["id"]    # 주의! 같은 id가 있으면 안됨.
       newmandal.title = parsed[i]["title"]
       newmandal.user_id = parsed[i]["user_id"]
+      newmandal.email = parsed[i]["email"]
       newmandal.shared = parsed[i]["shared"]
       
       newmandal.box11 =  parsed[i]["box11"]
@@ -1350,16 +1358,16 @@ class HomeController < ApplicationController
       su = Sugestion.new
       su.id = parsed[i]["id"]    # 주의! 같은 id가 있으면 안됨.
       su.user_id = parsed[i]["user_id"]
+      su.email = parsed[i]["email"]
       su.content = parsed[i]["content"]
       su.created_at = parsed[i]["created_at"]
       su.updated_at = parsed[i]["updated_at"]
       su.save
     end
-    
   end
   
   def manager_view  #매니저가 모든 만다라트를 볼 수 있는 공간. 이상 게시물 삭제용
-    if current_user.id != 1       #관리자는 1번 유저.
+    if current_user.email != "ekerll@nate.com"        #
       redirect_to '/home/mylist_simple'
     end
     @status = "mylist"
@@ -1368,6 +1376,9 @@ class HomeController < ApplicationController
   end
   
   def manager_mandal_remove
+    if current_user.email != "ekerll@nate.com"        #
+      redirect_to '/home/mylist_simple'
+    end
     @mandal=Mandalart.find(params[:mandal_id])
       @mandal.destroy
     redirect_to "/home/manager_view"

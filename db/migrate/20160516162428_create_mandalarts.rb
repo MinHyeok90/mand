@@ -3,6 +3,7 @@ class CreateMandalarts < ActiveRecord::Migration
     create_table :mandalarts do |t|
       t.string :title
       t.integer :user_id
+      t.string :email
       t.boolean :shared
       
       t.string :box11

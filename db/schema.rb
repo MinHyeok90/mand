@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160527084316) do
   create_table "mandalarts", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
+    t.string   "email"
     t.boolean  "shared"
     t.string   "box11"
     t.string   "box12"

@@ -126,10 +126,20 @@ span.cen {
             <div role="tabpanel" class="tab-pane <% if @selected_mandal== mandal.id %> <%="active" %><% end %>" id="<%=mandal.id%>">
                 <!--one mandal-->
                 <div class="row title">
-                    <div class="col-xs-9 parantcen"><h1><%=mandal.title%></h1></div>
+                    <div class="col-xs-9 parantcen">
+                        <br>
+                        <h1><%=mandal.title%></h1>
+                        <h4>
+                        <% if mandal.shared %>
+                            <p>공유중</p>
+                        <% else %>
+                            <p>공유X</p>
+                        <% end %>
+                        </h4>
+                    </div>
                     <div class="col-xs-3 parantcen">
                         <div class="row">
-                            <h5><p><%=time_ago_in_words(mandal.created_at)%></p></h5>
+                            <h4><p><%=time_ago_in_words(mandal.created_at)%></p></h4>
                             <!-- 수정하기 -->
                             <a href="/home/update/<%=mandal.id%>" class="col-xs-4 btn btn-primary">수정하기</a>
                             <!-- 삭제하기 --><!-- Button trigger modal -->
