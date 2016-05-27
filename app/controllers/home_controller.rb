@@ -208,14 +208,14 @@ class HomeController < ApplicationController
   def update
     @status = "update"
     @mandal=Mandalart.find(params[:mandal_id])
-    unless @mandal.user.email == current_user.email
+    unless @mandal.email == current_user.email
       redirect_to "/home/mylist_simple"
     end
   end
 
   def realupdate
     update_mandal = Mandalart.find(params[:mandal_id])
-    if update_mandal.user.email == current_user.email
+    if update_mandal.email == current_user.email
       update_mandal.shared = params[:shared]
       
       if params[:title].empty?            #제목칸을 적지 않았다면 => 중심 목표를 title로 작성.
@@ -318,7 +318,8 @@ class HomeController < ApplicationController
   
   def remove
     @mandal=Mandalart.find(params[:mandal_id])
-    if @mandal.user.email == current_user.email
+    @b = current_user.email
+    if @mandal.email == current_user.email
       @mandal.expireds.each do |ex|
         ex.destroy
       end
@@ -340,9 +341,12 @@ class HomeController < ApplicationController
     @status = "mylist"
     if user_signed_in?
       @mylist=Mandalart.where("email = ?", current_user.email).reverse
-      if @mylist
+      if @mylist.count == 0   #첫 방문자는 아직 list가 없다.
+        @selected_mandal = 1  #우선 첫번째 만다라트로 설정해둠.
+      else
         @selected_mandal = @mylist.first.id.to_i  #우선 첫번째 만다라트로 설정해둠.
       end
+      
       unless  params[:mandal_id].nil?           #하지만 선택된 만다라트가 있다면
         @selected_mandal = params[:mandal_id].to_i #해당 만다라트 id로 초기화 -> 뷰에서 해당 만다라트를 active할것임. 만일 선택되지 않았다면 첫번째 만다라트가 출력됨.
       end
@@ -353,7 +357,7 @@ class HomeController < ApplicationController
   
   def expired
     @mandal=Mandalart.find(params[:mandal_id])
-    if @mandal.user.email == current_user.email
+    if @mandal.email == current_user.email
       #1=====================================================================================
       if @mandal.stat11 == "done" && !@mandal.box11.empty?
         Expired.create(mandalart_id: params[:mandal_id], level: 3, content: @mandal.box11) 
@@ -744,7 +748,7 @@ class HomeController < ApplicationController
   def suggest
     newsugest = Sugestion.new
     newsugest.user = current_user
-    newsugest.user.email = current_user.email
+    newsugest.email = current_user.email
     newsugest.content = params[:content]
     if newsugest.save
     	redirect_to "/home/suggestion"
@@ -755,7 +759,7 @@ class HomeController < ApplicationController
   
   def removesuggest
     suggestion = Sugestion.find(params[:sug_id])
-    if suggestion.user.email == current_user.email
+    if suggestion.email == current_user.email
       suggestion.destroy
     end
     redirect_to "/home/suggestion"
@@ -920,7 +924,7 @@ class HomeController < ApplicationController
       exist_modal = Mandalart.find(params[:mandal_id])
       newmandal = exist_modal.dup
       newmandal.user = current_user
-      newmandal.user.email = current_user.email
+      newmandal.email = current_user.email
       newmandal.shared = true  #공유할지 안할지.
       
       newmandal.save
