@@ -183,6 +183,10 @@ p.blocktext {
         </div>
         <br>
         <hr>
-        <hr>
     <% end %>
+    <div class="row">
+        <div class="col-md-12">
+          <%= will_paginate @mandalarts, renderer: BootstrapPagination::Rails %>
+        </div>
+    </div>
 </div>

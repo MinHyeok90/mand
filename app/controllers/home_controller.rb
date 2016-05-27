@@ -13,7 +13,8 @@ class HomeController < ApplicationController
   
   def index
     @status = "index"
-    @mandalarts = Mandalart.where('shared = ?',true).reverse
+    @mandalarts = Mandalart.where('shared = ?',true).paginate(:page => params[:page], :per_page => 5).order('id DESC')
+    # @mm = Mandalart.paginate(:page => params[:page])
   end
   def index_table
     @status = "index"

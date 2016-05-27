@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 gem 'omniauth-facebook' # facebook login
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
