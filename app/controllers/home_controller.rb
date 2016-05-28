@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  before_action :require_login, except: [:index, :index_table] 
   
   def test
     # @status = "mylist"
@@ -1172,7 +1171,7 @@ class HomeController < ApplicationController
   end
   
   def manager_read_json_backup
-    if current_user.id != 1       #
+    if current_user.id != "ekerll@nate.com"       #
       redirect_to '/home/mylist_simple'
     end
     #mandal 복원
