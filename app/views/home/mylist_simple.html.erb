@@ -1,7 +1,20 @@
 <style>
 /*레이아웃*/
+/*@media screen and (min-width:600px) {*/
+/*    .box{*/
+      /*font-family: 'Nanum Pen Script';*/
+      /*font-family: 'Jeju Hallasan';*/
+      /*font-family: 'Hanna', serif;*/
+/*        font-size:0.7em;*/
+/*        height:80px;*/
+/*        word-break:break-all;*/
+/*    }*/
+/*}*/
 .box{
-    font-size:0.8em;
+  /*font-family: 'Nanum Pen Script';*/
+  /*font-family: 'Jeju Hallasan';*/
+  /*font-family: 'Hanna', serif;*/
+    font-size:0.9em;
     height:80px;
     word-break:break-all;
 }
@@ -17,12 +30,13 @@
 /*중간목표*/
 .subject2{
     font-weight:bold;
-    border:1px dashed #999;
+    /*border:1px solid white;*/
 }
 /*말단목표*/
 .subject3 {
     text-align:center;
-    border:1px dashed white;
+    /*border:1px solid white;*/
+    font-size:0.8em;
 }
 p.blocktext {
     margin-left: auto;
@@ -46,13 +60,15 @@ span.cen {
     background-color:#eee;
 }
 .stat_continue{    /*진행중*/
-    background-color:#9ff;
+    background-color:#AFFAFF;
 }
 .stat_done{    /*완료*/
-    background-color:#9E6;
+    background-color:#A0E8A1;
 }
 .stat_remember{    /*지속관리*/
-    background-color:#ffa;
+    background-color:#FFF9BD;
+    /*E8D6C3*/
+    /*FFAEB7*/
 }
 .explain_state{
     font-size :0.8em;
@@ -73,33 +89,39 @@ span.cen {
 }
 
 /*목표별 스타일*/
-/*.stat_new+.subject1{*/
-/*    background-color:#fff;*/
-/*    font-weight:bold;*/
-/*    color:red;*/
-/*}*/
-/*.stat_new+.subject2{*/
-/*    background-color:#ccc;*/
-/*    font-weight:bold;*/
-/*}*/
-/*.stat_continue+.subject1{*/
-/*    font-weight:bold;*/
-/*}*/
-/*.stat_continue+.subject2{*/
-/*    font-weight:bold;*/
-/*}*/
-/*.stat_done+.subject1{*/
-/*    font-weight:bold;*/
-/*}*/
-/*.stat_done+.subject2{*/
-/*    font-weight:bold;*/
-/*}*/
-/*.stat_remember+.subject1{*/
-/*    font-weight:bold;*/
-/*}*/
-/*.stat_remember+.subject2{*/
-/*    font-weight:bold;*/
-/*}*/
+.subject1.stat_new{
+    background-color:#fff;
+    font-weight:bold;
+    color:red;
+}
+.subject2.stat_new{
+    background-color:#ccc;
+    font-weight:bold;
+}
+.subject1.stat_continue{
+    background-color:#AFFAFF;
+    font-weight:bold;
+}
+.subject2.stat_continue{
+    background-color:#AFFAFF;
+    font-weight:bold;
+}
+.subject1.stat_done{
+    background-color:#A0E8A1;
+    font-weight:bold;
+}
+.subject2.stat_done{
+    background-color:#A0E8A1;
+    font-weight:bold;
+}
+.subject1.stat_remember{
+    font-weight:bold;
+    background-color:#FFF9BD;
+}
+.subject2.stat_remember{
+    font-weight:bold;
+    background-color:#FFF9BD;
+}
 
 </style>
 <div class="container">
@@ -341,11 +363,11 @@ span.cen {
         </div><!--tab-content-->
     </div><!-- row mandal-->
     <div class="row"><!-- 범례-->
-        <div class="col-xs-1 explain_state">범례</div>
-        <div class="col-xs-1 explain_state stat_new">1.생성된 목표: 목표 발견상태</div>
-        <div class="col-xs-1 explain_state stat_continue">2.시작한 목표: 목표 수행상태.</div>
-        <div class="col-xs-1 explain_state stat_done">3.완료된 목표: 달성. 저장가능</div>
-        <div class="col-xs-1 explain_state stat_remember">4.관리형 목표: 완료 없는 목표</div>
+        <div class="col-xs-1 parantcen explain_state "><span class="cen">범례</span></div>
+        <div class="col-xs-1 parantcen explain_state stat_new"><span class="cen">1.목표 발견</span></div>
+        <div class="col-xs-1 parantcen explain_state stat_continue"><span class="cen">2.목표 진행중</span></div>
+        <div class="col-xs-1 parantcen explain_state stat_done"><span class="cen">3.목표 달성<br>(저장가능)</div>
+        <div class="col-xs-1 parantcen explain_state stat_remember"><span class="cen">4.관리형 목표</div>
     </div><!-- row 범례-->
 </div><!-- container-->
 <script>
